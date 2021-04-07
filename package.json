@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.7",
     "@chakra-ui/react": "^1.4.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
@@ -19,6 +20,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-hook-form": "^6.15.5",
+    "recharts": "^2.0.9",
     "swr": "^0.5.4"
   }
 }

@@ -1,41 +1,60 @@
-import { Box, Flex, Heading } from "@chakra-ui/layout";
-import useSWR from "swr";
+import {
+    Table,
+    Tbody,
+    Tr,
+    Td,
+    IconButton,
+    Box,
+    Badge,
+    Text,
+    Flex,
+} from "@chakra-ui/react";
+import { ChevronLeftIcon } from "@chakra-ui/icons";
+import totalPriceCalculator from "@/utils/totalPriceCalculator";
 
-import HandleInvoiceButtonModal from "./HandleInvoiceButtonModal";
-import { Table, Th, Tr } from "@/components/Table";
-import fetcher from "@/utils/fetcher";
-import InvoiceRow from "./InvoiceRow";
-import { useAuth } from "@/lib/auth";
-
-const InvoiceTable = () => {
-    const { user } = useAuth();
-    const { data } = useSWR(
-        user ? ["/api/userInvoices", user.token] : null,
-        fetcher
-    );
-
+const InvoiceTable = ({ data, callback }) => {
     return (
-        <Box>
-            <Flex>
-                <Heading>Invoices</Heading>
-                <HandleInvoiceButtonModal>Add Button</HandleInvoiceButtonModal>
-            </Flex>
-            <Table>
-                <thead>
-                    <Tr>
-                        <Th>Id</Th>
-                        <Th>Date</Th>
-                        <Th>Name</Th>
-                        <Th>Amount</Th>
-                        <Th>Status</Th>
-                        <Th>{""}</Th>
-                    </Tr>
-                </thead>
-                <tbody>
-                    {data?.invoices.map((invoice) => (
-                        <InvoiceRow {...invoice} />
+        <Box maxH="500px" overflowY="auto">
+            <Table variant="simple">
+                <Tbody>
+                    {data?.invoices?.map((invoice) => (
+                        <Tr key={invoice?.id}>
+                            <Td>
+                                <IconButton
+                                    onClick={() => {
+                                        callback(invoice?.id);
+                                    }}
+                                    icon={<ChevronLeftIcon />}
+                                ></IconButton>
+                            </Td>
+                            <Td>
+                                <Flex direction="row">
+                                    #
+                                    <Text fontWeight="semibold">
+                                        {invoice?.id.substring(0, 5)}
+                                    </Text>
+                                </Flex>
+                            </Td>
+                            <Td>{invoice?.clientObj?.name}</Td>
+                            <Td>{totalPriceCalculator(invoice?.items)}$</Td>
+                            <Td>
+                                <Badge
+                                    p={1}
+                                    colorScheme={
+                                        invoice?.status === "pending"
+                                            ? "purple"
+                                            : invoice?.status === "paid"
+                                            ? "green"
+                                            : invoice?.status === "canceled" &&
+                                              "red"
+                                    }
+                                >
+                                    {invoice?.status}
+                                </Badge>
+                            </Td>
+                        </Tr>
                     ))}
-                </tbody>
+                </Tbody>
             </Table>
         </Box>
     );

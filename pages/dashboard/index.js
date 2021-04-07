@@ -1,7 +1,8 @@
-import { Box, Heading, Text } from "@chakra-ui/layout";
+import { Box, Text } from "@chakra-ui/layout";
 
 import { useAuth } from "@/lib/auth";
-import InvoiceTable from "@/components/InvoiceTable";
+import DashboardHeader from "@/components/DashboarHeader";
+import DashboardShell from "@/components/DashboardShell";
 
 export default function Home() {
     const { user, loading } = useAuth();
@@ -15,8 +16,9 @@ export default function Home() {
     }
 
     return (
-        <Box>
-            <InvoiceTable />
+        <Box mx="auto">
+            <DashboardHeader />
+            <DashboardShell></DashboardShell>
         </Box>
     );
 }
