@@ -43,7 +43,7 @@ const InvoiceDashboard = () => {
                 rowStart={["3", "3", "1"]}
                 colStart="1"
                 rowSpan={["1", "1", "2"]}
-                colSpan={["2", "2", "3"]}
+                colSpan="2"
             >
                 <InvoiceCard
                     clientData={clientData?.clients}
@@ -70,14 +70,12 @@ const InvoiceDashboard = () => {
                 colStart={["1", "1", "3"]}
                 rowSpan="1"
                 colSpan={["2", "2", "1"]}
-            >
-                <Text>Analityc 2</Text>
-            </GridItem>
+            ></GridItem>
             <GridItem
                 maxW={["100%", "100%", "none"]}
                 minW={["100%"]}
                 rowStart={["4", "4", "1"]}
-                colStart={["1", "1", "4"]}
+                colStart={["1", "1", "3"]}
                 rowSpan="3"
                 colSpan="2"
             >

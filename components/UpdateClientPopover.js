@@ -26,6 +26,7 @@ import { mutate } from "swr";
 import { updateClient } from "@/lib/db";
 import { useAuth } from "@/lib/auth";
 import ImageUploader from "./UploadImageButton";
+import HandleUserImageModal from "./HandleUserImageModal";
 
 const UpdateClientPopover = ({ client, callback }) => {
     const { user } = useAuth();
@@ -35,25 +36,27 @@ const UpdateClientPopover = ({ client, callback }) => {
     const initialRef = useRef();
     const finalRef = useRef();
 
+    if (!client) return <Text>Loading...</Text>;
+
     const { register, handleSubmit, errors, formState, reset } = useForm({
         defaultValues: {
-            name: client?.name,
-            email: client?.email,
-            phone_number: client?.phone_number,
-            street_address: client?.street_address,
-            city: client?.city,
-            province: client?.province,
-            post_code: client?.post_code,
-            country: client?.country,
+            name: client.name,
+            email: client.email,
+            phone_number: client.phone_number,
+            street_address: client.street_address,
+            city: client.city,
+            province: client.province,
+            post_code: client.post_code,
+            country: client.country,
         },
     });
 
     const [clientImage, setClientImage] = useState(client?.image);
-    const getImage = (newImage) => {
+    const getImage = newImage => {
         newImage && setClientImage(newImage);
     };
 
-    const onUpdateClient = (data) => {
+    const onUpdateClient = data => {
         const { error } = updateClient(client.id, {
             image: clientImage,
             ...data,
@@ -74,9 +77,9 @@ const UpdateClientPopover = ({ client, callback }) => {
             });
             mutate(
                 ["/api/clients", user.token],
-                async (catchedData) => {
+                async catchedData => {
                     const clientsList = catchedData.clients.filter(
-                        (c) => c.id !== client.id
+                        c => c.id !== client.id
                     );
                     const updatedClient = {
                         image: clientImage,
@@ -120,7 +123,10 @@ const UpdateClientPopover = ({ client, callback }) => {
                     <ModalCloseButton />
                     <ModalBody pb={6}>
                         <Stack spacing="24px">
-                            <ImageUploader callback={getImage} />
+                            <HandleUserImageModal
+                                callback={getImage}
+                                prevImageUrl={client?.image}
+                            />
                             <FormControl isInvalid={errors?.name}>
                                 <FormLabel>Client name</FormLabel>
                                 <Input

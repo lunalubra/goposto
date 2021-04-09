@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/button";
-import { Box, Text } from "@chakra-ui/layout";
+import { Box, Flex, Text } from "@chakra-ui/layout";
 import { useState } from "react";
 
 import { storage, STATE_CHANGED } from "@/lib/firebase";
@@ -12,7 +12,7 @@ export default function ImageUploader({ callback }) {
     const [downloadURL, setDownloadURL] = useState(null);
     const { user } = useAuth();
 
-    const uploadFile = async (e) => {
+    const uploadFile = async e => {
         const file = Array.from(e.target.files)[0];
         const extension = file.type.split("/")[1];
         const ref = storage.ref(
@@ -20,13 +20,13 @@ export default function ImageUploader({ callback }) {
         );
         setUploading(true);
         const task = ref.put(file);
-        task.on(STATE_CHANGED, (snapshot) => {
+        task.on(STATE_CHANGED, snapshot => {
             const pct = (
                 (snapshot.bytesTransferred / snapshot.totalBytes) *
                 100
             ).toFixed(0);
             setProgress(pct);
-            task.then((d) => ref.getDownloadURL()).then((url) => {
+            task.then(d => ref.getDownloadURL()).then(url => {
                 setDownloadURL(url);
                 callback(url);
                 setUploading(false);
@@ -45,6 +45,7 @@ export default function ImageUploader({ callback }) {
                         type="file"
                         onChange={uploadFile}
                         accept="image/x-png,image/gif,image/jpeg"
+                        style={{ color: "transparent" }}
                     />
                 </label>
             )}

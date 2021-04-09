@@ -10,40 +10,15 @@ import {
     LabelList,
 } from "recharts";
 
-const data = [
-    {
-        name: "Page A",
-        uv: 2400,
-    },
-    {
-        name: "Page B",
-        uv: 1398,
-    },
-    {
-        name: "Page C",
-        uv: 9800,
-    },
-    {
-        name: "Page D",
-        uv: 3908,
-    },
-    {
-        name: "Page E",
-        uv: 4800,
-    },
-    {
-        name: "Page F",
-        uv: 3800,
-    },
-    {
-        name: "Page G",
-        uv: 4300,
-    },
-];
+import AnalyticTotalGains from "./AnalyticTotalGains";
 
-const CustomLabel = ({ x, y, value }) => {
+const CustomLabel = ({ x, y, value, index, arrayLength }) => {
     const width = 40,
         height = width / 2;
+
+    if (index === 0 || index === arrayLength - 1) {
+        return <div></div>;
+    }
 
     return (
         <Flex as="g">
@@ -54,7 +29,10 @@ const CustomLabel = ({ x, y, value }) => {
                 ry={5}
                 width={width}
                 height={height}
-                style={{ fill: "#fff" }}
+                style={{
+                    fill: "#fff",
+                    opacity: "0.5",
+                }}
             />
             <Text
                 as="text"
@@ -77,7 +55,7 @@ export default function AnalyticInvoiceGains({ invoiceData: { invoices } }) {
     if (!invoices) return <Text>No invoice data</Text>;
 
     const invoiceGainsData = invoices
-        ?.map((invoice) => {
+        ?.map((invoice, i) => {
             const totalAmount = totalPriceCalculator(invoice.items);
             const createdAt = new Date(invoice?.createdAt?._seconds * 1000);
             const createdAtFormated = createdAt
@@ -89,7 +67,6 @@ export default function AnalyticInvoiceGains({ invoiceData: { invoices } }) {
         })
         .reverse();
 
-    console.log(invoiceGainsData);
     return (
         <Flex
             direction="column"
@@ -99,10 +76,11 @@ export default function AnalyticInvoiceGains({ invoiceData: { invoices } }) {
             width="100%"
             height="100%"
         >
-            <Flex>
+            <Flex direction="row" alignItems="center">
                 <Text m={5} fontSize="xl" fontWeight="semibold">
-                    Gains
+                    Total gains
                 </Text>
+                <AnalyticTotalGains invoices={invoices} />
             </Flex>
             <Flex mb={5} w="90%" h="35%" position="relative">
                 <Flex
@@ -116,22 +94,16 @@ export default function AnalyticInvoiceGains({ invoiceData: { invoices } }) {
                     justifyContent="center"
                     zIndex={3}
                 >
-                    <Flex width="102%" height="100%" alignItems="flex-end">
-                        <ResponsiveContainer
-                            width="100%"
-                            height="100%"
-                            aspect={3}
-                        >
+                    <Flex
+                        width={["105%", "105%", "102%"]}
+                        height="100%"
+                        alignItems="flex-end"
+                    >
+                        <ResponsiveContainer width="100%" height="100%">
                             <AreaChart
                                 width={730}
                                 height={250}
                                 data={invoiceGainsData}
-                                margin={{
-                                    top: 20,
-                                    right: 25,
-                                    left: 25,
-                                    bottom: 5,
-                                }}
                             >
                                 <defs>
                                     <linearGradient
@@ -154,7 +126,7 @@ export default function AnalyticInvoiceGains({ invoiceData: { invoices } }) {
                                     </linearGradient>
                                 </defs>
                                 <Tooltip
-                                    datakey={"createdAtFormated"}
+                                    datakey="createdAtFormated"
                                     payload={invoiceGainsData}
                                 />
                                 <Area
@@ -168,7 +140,13 @@ export default function AnalyticInvoiceGains({ invoiceData: { invoices } }) {
                                     <LabelList
                                         dataKey="totalAmount"
                                         position="insideTop"
-                                        content={CustomLabel}
+                                        content={
+                                            <CustomLabel
+                                                arrayLength={
+                                                    invoiceGainsData.length
+                                                }
+                                            />
+                                        }
                                     />
                                 </Area>
                             </AreaChart>

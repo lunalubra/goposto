@@ -26,6 +26,7 @@ import { createClient } from "@/lib/db";
 import ImageUploader from "./UploadImageButton";
 import { useAuth } from "@/lib/auth";
 import { mutate } from "swr";
+import HandleUserImageModal from "./HandleUserImageModal";
 
 const AddClientButtonModal = ({ callback }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,7 +37,7 @@ const AddClientButtonModal = ({ callback }) => {
 
     const { register, handleSubmit, errors, formState } = useForm();
 
-    const onAddClient = (newClientData) => {
+    const onAddClient = newClientData => {
         if (!clientImage) {
             return toast({
                 title: "Please enter an image",
@@ -66,7 +67,7 @@ const AddClientButtonModal = ({ callback }) => {
             });
             mutate(
                 ["/api/clients", user.token],
-                (data) => ({
+                data => ({
                     clients: [
                         {
                             id,
@@ -84,7 +85,7 @@ const AddClientButtonModal = ({ callback }) => {
         onClose();
     };
 
-    const getImage = (newImage) => {
+    const getImage = newImage => {
         newImage && setClientImage(newImage);
     };
 
@@ -122,7 +123,7 @@ const AddClientButtonModal = ({ callback }) => {
 
                             <DrawerBody>
                                 <Stack spacing="24px">
-                                    <ImageUploader callback={getImage} />
+                                    <HandleUserImageModal callback={getImage} />
                                     <FormControl isInvalid={errors?.name}>
                                         <FormLabel>Client name</FormLabel>
                                         <Input

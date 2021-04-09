@@ -1,19 +1,27 @@
-import totalPriceCalculator from "@/utils/totalPriceCalculator";
-import { Badge, Flex, Heading, Text } from "@chakra-ui/layout";
 import { Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/table";
+import totalPriceCalculator from "@/utils/totalPriceCalculator";
+import { Badge, Flex, Text } from "@chakra-ui/layout";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 import DeleteInvoiceButton from "./DeleteInvoiceButton";
 import UpdateInvoiceButton from "./UpdateInvoiceButton";
 
 const InvoiceCard = ({ clientData, data, invoiceId, callback }) => {
+    const router = useRouter();
+
     let invoice = invoiceId
         ? data?.invoices.find((invoice) => invoice.id === invoiceId)
+        : router.query.id
+        ? data?.invoices.find((invoice) => invoice.id === router.query.id)
         : data?.invoices?.[0];
 
     useEffect(() => {
         invoice = invoiceId
             ? data?.invoices.find((invoice) => invoice.id === invoiceId)
+            : router.query.id
+            ? data?.invoices.find((invoice) => invoice.id === router.query.id)
             : data?.invoices?.[0];
     }, [invoiceId]);
 
@@ -52,9 +60,14 @@ const InvoiceCard = ({ clientData, data, invoiceId, callback }) => {
                         </Badge>
                     </Flex>
                     <Flex direction="row" alignItems="center">
-                        <Text fontSize="xl" fontWeight="semibold">
-                            {invoice?.clientObj.name}
-                        </Text>
+                        <Link
+                            href={`/dashboard/client?id=${invoice.clientObj.id}`}
+                            passHref
+                        >
+                            <Text as="a" fontSize="xl" fontWeight="semibold">
+                                {invoice?.clientObj.name}
+                            </Text>
+                        </Link>
                     </Flex>
                     <Text>{invoice?.description}</Text>
                 </Flex>

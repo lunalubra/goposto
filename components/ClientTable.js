@@ -9,7 +9,7 @@ const ClientTable = ({ data, callback }) => {
                     {data?.clients?.map((client) => (
                         <Tr key={client?.name}>
                             <Td>{client?.name}</Td>
-                            <Td display={["none", "none", "revert"]}>
+                            <Td display={["none", "revert", "revert"]}>
                                 {client?.email}
                             </Td>
                             <Td>

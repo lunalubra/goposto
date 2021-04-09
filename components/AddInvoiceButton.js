@@ -45,8 +45,6 @@ const AddInvoiceButton = ({ clients, callback }) => {
     const [clientObj, setClientObj] = useState(null);
     const [itemsArray, setItemsArray] = useState(null);
 
-    console.log(clientObj);
-
     const getItemsArray = (itemsArray) => {
         setItemsArray(itemsArray);
     };

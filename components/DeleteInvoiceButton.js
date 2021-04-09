@@ -49,7 +49,9 @@ const DeleteInvoiceButton = ({ invoiceId, callback }) => {
                 }),
                 false
             );
-            callback(null);
+            if (callback) {
+                callback(null);
+            }
         }
         onClose();
     };

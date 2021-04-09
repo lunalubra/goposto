@@ -153,7 +153,9 @@ const UpdateInvoiceButton = ({ invoiceObj, clients, callback }) => {
             reset({
                 description: newInvoiceData.description,
             });
-            callback(invoiceObj.id);
+            if (callback) {
+                callback(invoiceObj.id);
+            }
         }
         onClose();
     };

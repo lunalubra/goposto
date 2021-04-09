@@ -7,6 +7,7 @@ import ClientTable from "./ClientTable";
 import fetcher from "@/utils/fetcher";
 import { useAuth } from "@/lib/auth";
 import { useState } from "react";
+import AnalyticClientLocation from "./AnalyticClientLocation";
 
 const ClientDashboard = () => {
     const { user } = useAuth();
@@ -16,7 +17,7 @@ const ClientDashboard = () => {
     );
 
     const [clientId, setClientId] = useState(null);
-    console.log(clientId);
+
     const getClientId = (client) => {
         setClientId(client);
     };
@@ -37,29 +38,25 @@ const ClientDashboard = () => {
             p={10}
             gap={5}
         >
-            <GridItem colStart={1} colSpan={1} rowStart={1} rowSpan={1}>
-                <Box>
-                    <Text fontSize="lg" fontWeight="bold">
-                        Analityc 1
-                    </Text>
-                </Box>
-            </GridItem>
-            <GridItem
-                colStart={[1, null, 2]}
-                colSpan={2}
-                rowStart={[2, null, 1]}
-                rowSpan={1}
-            >
-                <Box>
-                    <Text fontSize="lg" fontWeight="bold">
-                        Analityc 2
-                    </Text>
-                </Box>
-            </GridItem>
             <GridItem
                 colStart={1}
-                colSpan={[1, null, 3]}
-                rowStart={[3, null, 2]}
+                colSpan={[1, 1, 3]}
+                rowStart={[2, 2, 1]}
+                rowSpan={1}
+                width="200px"
+                height="200px"
+                bg="brand.100"
+                pl={[1, 1, 3]}
+                rounded={32}
+                justifySelf={["center", "center", "start"]}
+            >
+                <AnalyticClientLocation clientData={data} />
+            </GridItem>
+
+            <GridItem
+                colStart={1}
+                colSpan={[1, 1, 3]}
+                rowStart={[3, 3, 2]}
                 rowSpan={2}
             >
                 <Box>
@@ -71,19 +68,17 @@ const ClientDashboard = () => {
                 </Box>
             </GridItem>
             <GridItem
-                colStart={[1, null, 4]}
-                colSpan={[1, null, 2]}
+                colStart={[1, 1, 4]}
+                colSpan={[1, 1, 2]}
                 rowStart={[5, null, 1]}
                 rowSpan={[2, null, 3]}
-                justifySelf="right"
+                justifySelf={["center", "center", "right"]}
             >
-                <Box>
-                    <ClientsCard
-                        data={data}
-                        clientId={clientId}
-                        callback={getClientId}
-                    />
-                </Box>
+                <ClientsCard
+                    data={data}
+                    clientId={clientId}
+                    callback={getClientId}
+                />
             </GridItem>
         </Grid>
     );
