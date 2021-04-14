@@ -52,28 +52,28 @@ const DashboardHeader = () => {
           <MenuButton as={IconButton} icon={<SettingsIcon />} />
           <MenuList>
             <Flex direction="column" display={["flex", "none"]}>
-              <MenuItem>
-                <NextLink href="/dashboard" passHref>
+              <NextLink href="/dashboard" passHref>
+                <MenuItem>
                   <Link fontSize="lg">Inbox</Link>
-                </NextLink>
-              </MenuItem>
-              <MenuItem>
-                <NextLink href="/dashboard/invoice" passHref>
+                </MenuItem>
+              </NextLink>
+              <NextLink href="/dashboard/invoice" passHref>
+                <MenuItem>
                   <Link fontSize="lg">Invoices</Link>
-                </NextLink>
-              </MenuItem>
-              <MenuItem>
-                <NextLink href="/dashboard/client" passHref>
+                </MenuItem>
+              </NextLink>
+              <NextLink href="/dashboard/client" passHref>
+                <MenuItem>
                   <Link fontSize="lg">Clients</Link>
-                </NextLink>
-              </MenuItem>
+                </MenuItem>
+              </NextLink>
               <MenuDivider />
             </Flex>
-            <MenuItem>
-              <NextLink href="/dashboard/client" passHref>
+            <NextLink href="/dashboard/client" passHref>
+              <MenuItem>
                 <Link fontSize="lg">Manage account</Link>
-              </NextLink>
-            </MenuItem>
+              </MenuItem>
+            </NextLink>
             <MenuItem
               onClick={() => {
                 signout();
