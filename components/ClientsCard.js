@@ -37,13 +37,14 @@ const ClientsCard = ({data, clientId, callback}) => {
       direction="column"
       alignItems="center"
       pt={3}
+      px={3}
     >
       <Flex
         justifyContent="center"
         alignItems="center"
         bg="brand.400"
         rounded={8}
-        minW={["97%", "90%"]}
+        minW="100%"
         minH="100"
       >
         <Avatar src={client.image} size="lg" />

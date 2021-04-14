@@ -1,4 +1,4 @@
-import {Box, Text} from "@chakra-ui/layout";
+import {Box, Grid, GridItem, Text} from "@chakra-ui/layout";
 import useSWR from "swr";
 
 import ClientDashboard from "@/components/ClientDashboard";
@@ -20,9 +20,9 @@ export default function ClientDashboardPage() {
   );
 
   if (clientError || invoiceError)
-    return <Text>An error ocurred while fetching the data </Text>;
+    return <Text>An error ocurred while fetching the data</Text>;
 
-  if (loading || !clientData || !invoiceData) return <Text>Loading ...</Text>;
+  if (loading || !clientData || !invoiceData) return <Text>Loading...</Text>;
 
   if (!user) return <Button onClick={e => signinWithGoogle()}>SignIn</Button>;
 

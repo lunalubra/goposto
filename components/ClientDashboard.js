@@ -40,7 +40,7 @@ const ClientDashboard = ({clientData, invoiceData}) => {
         colSpan={[1]}
         rowStart={[2, 1]}
         rowSpan={[1]}
-        maxW="100%"
+        maxW={["90%", "100%"]}
       >
         <AnalyticClientLocation clientData={clientData} />
       </GridItem>
@@ -50,7 +50,7 @@ const ClientDashboard = ({clientData, invoiceData}) => {
         colSpan={[1]}
         rowStart={[2]}
         rowSpan={[1]}
-        maxW="100%"
+        maxW={["90%", "100%"]}
       >
         <AnalyticsClientTotalClients children={clientData.clients.length} />
       </GridItem>
@@ -59,7 +59,7 @@ const ClientDashboard = ({clientData, invoiceData}) => {
         colSpan={[2]}
         rowStart={[3, 2]}
         rowSpan={[1]}
-        maxW="100%"
+        maxW={["90%", "100%"]}
       >
         <ClientTable data={clientData} callback={getClientId} />
       </GridItem>

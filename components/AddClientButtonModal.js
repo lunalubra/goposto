@@ -17,6 +17,7 @@ import {
   useToast,
   FormErrorMessage,
   Box,
+  Image,
 } from "@chakra-ui/react";
 import {AddIcon} from "@chakra-ui/icons";
 import {useForm} from "react-hook-form";
@@ -122,7 +123,10 @@ const AddClientButtonModal = ({callback}) => {
 
               <DrawerBody>
                 <Stack spacing="24px">
-                  <HandleUserImageModal callback={getImage} />
+                  <Flex direction="column" alignItems="center">
+                    <Image src={clientImage} maxW="100" maxH="100" pb={5} />
+                    <HandleUserImageModal callback={getImage} />
+                  </Flex>
                   <FormControl isInvalid={errors?.name}>
                     <FormLabel>Client name</FormLabel>
                     <Input
@@ -170,7 +174,11 @@ const AddClientButtonModal = ({callback}) => {
                     Billing information
                   </Text>
                   <Flex>
-                    <FormControl mt={4} isInvalid={errors?.street_address}>
+                    <FormControl
+                      mt={4}
+                      mr={2}
+                      isInvalid={errors?.street_address}
+                    >
                       <FormLabel>Street address</FormLabel>
                       <Input
                         ref={register({
@@ -199,7 +207,7 @@ const AddClientButtonModal = ({callback}) => {
                     </FormControl>
                   </Flex>
                   <Flex>
-                    <FormControl mt={4} isInvalid={errors?.city}>
+                    <FormControl mt={4} mr={2} isInvalid={errors?.city}>
                       <FormLabel>City</FormLabel>
                       <Input
                         ref={register({
@@ -213,7 +221,7 @@ const AddClientButtonModal = ({callback}) => {
                       </FormErrorMessage>
                     </FormControl>
 
-                    <FormControl mt={4} isInvalid={errors?.province}>
+                    <FormControl mt={4} mr={2} isInvalid={errors?.province}>
                       <FormLabel>Province</FormLabel>
                       <Input
                         ref={register({

@@ -1,23 +1,13 @@
-import {
-  Bar,
-  BarChart,
-  ComposedChart,
-  LabelList,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-} from "recharts";
-import {Flex, Stack} from "@chakra-ui/layout";
-import {Tooltip} from "@chakra-ui/react";
+import {Bar, BarChart, LabelList, ResponsiveContainer} from "recharts";
+import {Tooltip, useBreakpointValue} from "@chakra-ui/react";
 import {Avatar} from "@chakra-ui/avatar";
-import {useEffect, useState} from "react";
+import {Flex} from "@chakra-ui/layout";
+import {useEffect} from "react";
 
 import totalPriceCalculator from "@/utils/totalPriceCalculator";
 import CustomLabel from "./CustomLabel";
 
 const AnalyticClientMostGains = ({clients, invoices, callback}) => {
-  const [width, setWidth] = useState(0);
-
   let formatedClients = clients.map(client => {
     const clientInvoices = invoices.filter(
       invoice => invoice.clientObj.id === client.id
@@ -58,6 +48,8 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
     });
   }, [clients, invoices]);
 
+  const avatarSize = useBreakpointValue({base: "sm", sm: "lg"});
+
   return (
     <Flex
       bg="brand.200"
@@ -91,12 +83,7 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
               <LabelList
                 dataKey="amount"
                 position="insideTop"
-                content={
-                  <CustomLabel
-                    arrayLength={formatedClients.length}
-                    callback={setWidth}
-                  />
-                }
+                content={<CustomLabel arrayLength={formatedClients.length} />}
               />
             </Bar>
           </BarChart>
@@ -104,7 +91,7 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
         <Flex
           direction="row"
           justifyContent="space-around"
-          mt={[-5]}
+          mt={[0, -5]}
           pb={4}
           minW="100%"
         >
@@ -115,6 +102,7 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
               aria-label="A tooltip"
             >
               <Avatar
+                size={avatarSize}
                 onClick={() => callback(client.id)}
                 src={client.imageUrl}
               />

@@ -1,14 +1,9 @@
 import {Flex, Text} from "@chakra-ui/layout";
 import {useEffect} from "react";
 
-const CustomLabel = ({x, y, value, width, index, callback}) => {
+const CustomLabel = ({x, y, value, width}) => {
   const height = width / 2,
     padding = (width * 1) / 10;
-  useEffect(() => {
-    if (index === 0) {
-      callback(width);
-    }
-  }, [index]);
 
   return (
     <Flex as="g">

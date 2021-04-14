@@ -50,7 +50,7 @@ const HandleUserImageModal = ({callback, prevImageUrl}) => {
   };
 
   useEffect(() => {
-    getUserImages();
+    if (imagesUrls.length === 0) getUserImages();
     return () => {};
   }, []);
 
@@ -62,6 +62,12 @@ const HandleUserImageModal = ({callback, prevImageUrl}) => {
   if (!imagesUrls) {
     return <Text>Loading...</Text>;
   }
+
+  if (imagesUrls.length === 0) {
+    return <Text>Add an image!</Text>;
+  }
+
+  console.log(imagesUrls);
 
   return (
     <>
@@ -80,7 +86,15 @@ const HandleUserImageModal = ({callback, prevImageUrl}) => {
           <ModalCloseButton />
           <ModalBody>
             {imageUrl ? (
-              <Image src={imageUrl} width="100px" height="100px" alt="image" />
+              <Flex direction="column" alignItems="center">
+                <Text>Selected image</Text>
+                <Image
+                  src={imageUrl}
+                  width="100px"
+                  height="100px"
+                  alt="image"
+                />
+              </Flex>
             ) : (
               <Text fontSize="lg" fontWeight="semibold">
                 Select an image!
@@ -102,12 +116,7 @@ const HandleUserImageModal = ({callback, prevImageUrl}) => {
           </ModalBody>
 
           <ModalFooter justifyContent="space-between">
-            <ImageUploader callback={callback} />
-            <Flex direction="row">
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Save
-              </Button>
-            </Flex>
+            <ImageUploader callback={getSelectedImage} />
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -48,7 +48,7 @@ const DashboardHeader = () => {
             </NextLink>
           </Stack>
         </Flex>
-        <Menu>
+        <Menu autoSelect={false}>
           <MenuButton as={IconButton} icon={<SettingsIcon />} />
           <MenuList>
             <Flex direction="column" display={["flex", "none"]}>
