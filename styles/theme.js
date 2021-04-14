@@ -31,8 +31,8 @@ export const GoogleIcon = createIcon({
 const theme = extendTheme({
   breakpoints,
   fonts: {
-    heading: "Inter",
-    body: "Inter",
+    heading: "Inter, system-ui, sans-serif",
+    body: "Inter, system-ui, sans-serif",
   },
   colors: {
     brand: {

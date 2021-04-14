@@ -1,11 +1,12 @@
-import {Box, Grid, GridItem, Text} from "@chakra-ui/layout";
+import {Box, Text} from "@chakra-ui/layout";
 import useSWR from "swr";
 
 import ClientDashboard from "@/components/ClientDashboard";
 import DashboardHeader from "@/components/DashboarHeader";
+import GoogleButton from "@/components/GoogleButton";
 import fetcher from "@/utils/fetcher";
 import {useAuth} from "@/lib/auth";
-import GoogleButton from "@/components/GoogleButton";
+import Head from "next/head";
 
 export default function ClientDashboardPage() {
   const {user, loading, signinWithGoogle} = useAuth();
@@ -21,15 +22,40 @@ export default function ClientDashboardPage() {
   );
 
   if (!user)
-    return <GoogleButton callback={signinWithGoogle} redirect="client" />;
+    return (
+      <>
+        <Head>
+          <title>Client dashboard</title>
+        </Head>
+        <GoogleButton callback={signinWithGoogle} redirect="client" />
+      </>
+    );
 
   if (clientError || invoiceError)
-    return <Text>An error ocurred while fetching the data</Text>;
+    return (
+      <>
+        <Head>
+          <title>Client dashboard</title>
+        </Head>
+        <Text>An error ocurred while fetching the data</Text>
+      </>
+    );
 
-  if (loading || !clientData || !invoiceData) return <Text>Loading...</Text>;
+  if (loading || !clientData || !invoiceData)
+    return (
+      <>
+        <Head>
+          <title>Client dashboard</title>
+        </Head>
+        <Text>Loading...</Text>
+      </>
+    );
 
   return (
     <>
+      <Head>
+        <title>Client dashboard</title>
+      </Head>
       <DashboardHeader />
       <Box maxWidth="1250px" mx="auto">
         <ClientDashboard clientData={clientData} invoiceData={invoiceData} />

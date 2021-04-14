@@ -39,6 +39,7 @@ const InvoiceTable = ({data, callback, clients}) => {
               <Tr key={invoice?.id}>
                 <Td>
                   <IconButton
+                    name="See inovices information"
                     onClick={() => {
                       callback(invoice?.id);
                     }}

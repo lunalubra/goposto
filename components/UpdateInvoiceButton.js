@@ -158,6 +158,7 @@ const UpdateInvoiceButton = ({invoiceObj, clients, callback}) => {
   return (
     <>
       <IconButton
+        name="Edit invoice"
         ml={3}
         bg="brand.400"
         colorScheme="white"

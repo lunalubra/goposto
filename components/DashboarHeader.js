@@ -49,7 +49,7 @@ const DashboardHeader = () => {
           </Stack>
         </Flex>
         <Menu autoSelect={false}>
-          <MenuButton as={IconButton} icon={<SettingsIcon />} />
+          <MenuButton name="Settings" as={IconButton} icon={<SettingsIcon />} />
           <MenuList>
             <Flex direction="column" display={["flex", "none"]}>
               <NextLink href="/dashboard" passHref>
