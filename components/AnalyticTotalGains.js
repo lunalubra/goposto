@@ -15,7 +15,13 @@ const AnalyticTotalGains = ({invoices}) => {
   );
 
   return (
-    <Flex bg="white" direction="column" alignItems="center" p={2} rounded={10}>
+    <Flex
+      bg="brand.100"
+      direction="column"
+      alignItems="center"
+      p={2}
+      rounded={10}
+    >
       <Flex direction="row" alignItems="center">
         $
         <Text fontSize="lg" fontWeight="semibold">

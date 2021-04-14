@@ -30,9 +30,6 @@ const HandleUserImageModal = ({callback, prevImageUrl}) => {
       .listAll();
 
     return imagesNotProcesed._delegate.items.map(image => {
-      console.log(
-        image._location.path.split(`${user.uid}/`).pop().split(".").pop()
-      );
       return storage
         .ref(image._location.path)
         .getDownloadURL()
