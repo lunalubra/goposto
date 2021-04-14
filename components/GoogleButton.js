@@ -8,6 +8,7 @@ const GoogleButton = ({callback, redirect}) => {
 
   return (
     <Button
+      aria-label="Continue whit google to login/register"
       onClick={async e => {
         await callback();
         router.push(`/dashboard/${redirect || ""}`);

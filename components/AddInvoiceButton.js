@@ -123,6 +123,7 @@ const AddInvoiceButton = ({clients, callback}) => {
   return (
     <>
       <Button
+        aria-label="Add a new invoice"
         leftIcon={<AddIcon />}
         bg="brand.400"
         colorScheme="white"
@@ -163,6 +164,7 @@ const AddInvoiceButton = ({clients, callback}) => {
                       <Text>Inovice client</Text>
                       <Menu>
                         <MenuButton
+                          aria-label="add a invoice client for the invoice"
                           as={Button}
                           rightIcon={<ChevronDownIcon />}
                           py={7}
@@ -217,6 +219,7 @@ const AddInvoiceButton = ({clients, callback}) => {
                       <Text>Invoice status</Text>
                       <Menu>
                         <MenuButton
+                          aria-label="Add a default status for your invoice"
                           as={Button}
                           rightIcon={<ChevronDownIcon />}
                           py={7}
@@ -314,10 +317,16 @@ const AddInvoiceButton = ({clients, callback}) => {
               </DrawerBody>
 
               <DrawerFooter borderTopWidth="1px">
-                <Button variant="outline" mr={3} onClick={onClose}>
+                <Button
+                  aria-label="cancel adding invoice"
+                  variant="outline"
+                  mr={3}
+                  onClick={onClose}
+                >
                   Cancel
                 </Button>
                 <Button
+                  aria-label="submit invoice"
                   type="submit"
                   colorScheme="blue"
                   isLoading={formState.isSubmitting}

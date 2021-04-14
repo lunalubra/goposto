@@ -158,7 +158,7 @@ const UpdateInvoiceButton = ({invoiceObj, clients, callback}) => {
   return (
     <>
       <IconButton
-        name="Edit invoice"
+        aria-label="Edit invoice"
         ml={3}
         bg="brand.400"
         colorScheme="white"
@@ -193,6 +193,7 @@ const UpdateInvoiceButton = ({invoiceObj, clients, callback}) => {
                     <Text>Inovice client</Text>
                     <Menu>
                       <MenuButton
+                        aria-label="change the invoice client here"
                         as={Button}
                         rightIcon={<ChevronDownIcon />}
                         py={7}
@@ -239,6 +240,7 @@ const UpdateInvoiceButton = ({invoiceObj, clients, callback}) => {
                     <Text>Invoice status</Text>
                     <Menu>
                       <MenuButton
+                        aria-label="Change the invoice status here"
                         as={Button}
                         rightIcon={<ChevronDownIcon />}
                         py={7}
@@ -333,10 +335,16 @@ const UpdateInvoiceButton = ({invoiceObj, clients, callback}) => {
             </ModalBody>
 
             <ModalFooter borderTopWidth="1px">
-              <Button variant="outline" mr={3} onClick={onClose}>
+              <Button
+                aria-label="cancel update operation"
+                variant="outline"
+                mr={3}
+                onClick={onClose}
+              >
                 Cancel
               </Button>
               <Button
+                aria-label="submit new invoice information"
                 type="submit"
                 colorScheme="blue"
                 isLoading={formState.isSubmitting}

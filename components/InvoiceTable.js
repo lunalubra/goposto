@@ -39,7 +39,7 @@ const InvoiceTable = ({data, callback, clients}) => {
               <Tr key={invoice?.id}>
                 <Td>
                   <IconButton
-                    name="See inovices information"
+                    aria-label="See inovices information in invoice card"
                     onClick={() => {
                       callback(invoice?.id);
                     }}

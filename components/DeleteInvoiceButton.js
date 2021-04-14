@@ -58,7 +58,7 @@ const DeleteInvoiceButton = ({invoiceId, callback}) => {
     <Popover isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
       <PopoverTrigger>
         <IconButton
-          name="Delete invoice"
+          aria-label="Delete invoice"
           bg="red"
           colorScheme="white"
           _hover={{bg: "red.600"}}
@@ -78,6 +78,7 @@ const DeleteInvoiceButton = ({invoiceId, callback}) => {
           <PopoverCloseButton />
           <PopoverBody alignSelf="flex-end">
             <Button
+              aria-label="delete invoice"
               _hover={{bg: "red.600"}}
               _active={{
                 bg: "red.700",
@@ -90,7 +91,12 @@ const DeleteInvoiceButton = ({invoiceId, callback}) => {
             >
               Delete
             </Button>
-            <Button onClick={() => onClose()} ml={3} variant="outline">
+            <Button
+              aria-label="cancel delete invoice"
+              onClick={() => onClose()}
+              ml={3}
+              variant="outline"
+            >
               Cancel
             </Button>
           </PopoverBody>

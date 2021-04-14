@@ -101,6 +101,7 @@ const UpdateClientPopover = ({client, callback}) => {
   return (
     <>
       <IconButton
+        aria-label="Edit client information"
         ml={3}
         bg="brand.400"
         colorScheme="white"
@@ -253,10 +254,16 @@ const UpdateClientPopover = ({client, callback}) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
+            <Button
+              aria-label="cancel edit client information"
+              variant="outline"
+              mr={3}
+              onClick={onClose}
+            >
               Cancel
             </Button>
             <Button
+              aria-label="submit new client information"
               type="submit"
               colorScheme="blue"
               isLoading={formState.isSubmitting}

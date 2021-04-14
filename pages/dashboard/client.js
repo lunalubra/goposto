@@ -52,7 +52,7 @@ export default function ClientDashboardPage() {
     );
 
   return (
-    <>
+    <Box>
       <Head>
         <title>Client dashboard</title>
       </Head>
@@ -60,6 +60,6 @@ export default function ClientDashboardPage() {
       <Box maxWidth="1250px" mx="auto">
         <ClientDashboard clientData={clientData} invoiceData={invoiceData} />
       </Box>
-    </>
+    </Box>
   );
 }

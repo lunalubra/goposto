@@ -1,13 +1,10 @@
 import {Flex, Text} from "@chakra-ui/layout";
-import {Img} from "@chakra-ui/image";
 
 import {useEffect} from "react";
 import {useRouter} from "next/router";
 
-import ClientImageWithDeepth from "./ClientImageWithDeepth";
 import UpdateClientPopover from "./UpdateClientPopover";
 import DeleteClientPopover from "./DeleteClientPopover";
-import {Description} from "./Description";
 import {Avatar} from "@chakra-ui/avatar";
 
 const ClientsCard = ({data, clientId, callback}) => {

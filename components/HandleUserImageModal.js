@@ -72,11 +72,12 @@ const HandleUserImageModal = ({callback, prevImageUrl}) => {
   return (
     <>
       <Button
+        aria-label="Manage images"
         onClick={e => {
           onOpen();
         }}
       >
-        Images
+        Manage images
       </Button>
 
       <Modal scrollBehavior="inside" isOpen={isOpen} onClose={onClose}>

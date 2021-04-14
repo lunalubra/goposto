@@ -6,6 +6,7 @@ import InboxDashboard from "@/components/InboxDashboard";
 import fetcher from "@/utils/fetcher";
 import {useAuth} from "@/lib/auth";
 import GoogleButton from "@/components/GoogleButton";
+import Head from "next/head";
 
 export default function Home() {
   const {user, loading, signinWithGoogle} = useAuth();
@@ -19,15 +20,41 @@ export default function Home() {
     fetcher
   );
 
-  if (!user) return <GoogleButton callback={signinWithGoogle} />;
+  if (!user)
+    return (
+      <>
+        <Head>
+          <title>Welcome!</title>
+        </Head>
+        <GoogleButton callback={signinWithGoogle} />
+      </>
+    );
 
   if (clientError || invoiceError)
-    return <Text>An error ocurred while fetching the data </Text>;
+    return (
+      <>
+        <Head>
+          <title>Welcome!</title>
+        </Head>
+        <Text>An error ocurred while fetching the data </Text>
+      </>
+    );
 
-  if (loading || !clientData || !invoiceData) return <Text>Loading ...</Text>;
+  if (loading || !clientData || !invoiceData)
+    return (
+      <>
+        <Head>
+          <title>Welcome!</title>
+        </Head>
+        <Text>Loading ...</Text>
+      </>
+    );
 
   return (
     <>
+      <Head>
+        <title>Welcome!</title>
+      </Head>
       <DashboardHeader />
       <Box maxWidth="1250px" mx="auto">
         <InboxDashboard

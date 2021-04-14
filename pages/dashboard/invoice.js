@@ -1,4 +1,5 @@
 import {Box, Text} from "@chakra-ui/layout";
+import Head from "next/head";
 import useSWR from "swr";
 
 import InvoiceDashboard from "@/components/InvoiceDashboard";
@@ -21,15 +22,40 @@ export default function InvoiceDashboardPage() {
   );
 
   if (!user)
-    return <GoogleButton callback={signinWithGoogle} redirect="invoice" />;
+    return (
+      <>
+        <Head>
+          <title>Invoice Dashboard</title>
+        </Head>
+        <GoogleButton callback={signinWithGoogle} redirect="invoice" />
+      </>
+    );
 
   if (clientError || invoiceError)
-    return <Text>An error ocurred while fetching the data</Text>;
+    return (
+      <>
+        <Head>
+          <title>Invoice Dashboard</title>
+        </Head>
+        <Text>An error ocurred while fetching the data</Text>
+      </>
+    );
 
-  if (loading || !clientData || !invoiceData) return <Text>Loading...</Text>;
+  if (loading || !clientData || !invoiceData)
+    return (
+      <>
+        <Head>
+          <title>Invoice Dashboard</title>
+        </Head>
+        <Text>Loading...</Text>
+      </>
+    );
 
   return (
     <>
+      <Head>
+        <title>Invoice Dashboard</title>
+      </Head>
       <DashboardHeader />
       <Box maxWidth="1250px" mx="auto">
         <InvoiceDashboard invoiceData={invoiceData} clientData={clientData} />

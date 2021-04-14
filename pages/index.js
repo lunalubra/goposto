@@ -7,13 +7,25 @@ import {useAuth} from "@/lib/auth";
 export default function Home() {
   const {user, loading, signinWithGoogle, signout} = useAuth();
 
-  if (loading) {
-    return <Text>Loading...</Text>;
-  }
+  if (loading)
+    return (
+      <>
+        <Head>
+          <title>logo</title>
+        </Head>
+        <Text>Loading...</Text>
+      </>
+    );
 
-  if (!user) {
-    return <GoogleButton callback={signinWithGoogle} />;
-  }
+  if (!user)
+    return (
+      <>
+        <Head>
+          <title>logo</title>
+        </Head>
+        <GoogleButton callback={signinWithGoogle} />
+      </>
+    );
 
   return (
     <Box>
@@ -27,6 +39,7 @@ export default function Home() {
             `,
           }}
         />
+        <title>logo</title>
       </Head>
       <Box>You are alredy registered!</Box>
     </Box>

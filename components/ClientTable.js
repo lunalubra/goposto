@@ -42,6 +42,7 @@ const ClientTable = ({data, callback}) => {
                 <Td>{client?.country}</Td>
                 <Td>
                   <IconButton
+                    aria-label="show this client in the client card"
                     onClick={() => {
                       callback(client?.id);
                     }}
