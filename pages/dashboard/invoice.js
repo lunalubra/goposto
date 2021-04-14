@@ -1,9 +1,9 @@
-import {Box, Flex, Text} from "@chakra-ui/layout";
-
+import {Box, Text} from "@chakra-ui/layout";
 import useSWR from "swr";
 
 import InvoiceDashboard from "@/components/InvoiceDashboard";
 import DashboardHeader from "@/components/DashboarHeader";
+import GoogleButton from "@/components/GoogleButton";
 import fetcher from "@/utils/fetcher";
 import {useAuth} from "@/lib/auth";
 
