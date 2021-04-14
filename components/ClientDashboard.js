@@ -4,8 +4,8 @@ import {useState} from "react";
 import AnalyticsClientTotalClients from "./AnalyticClientTotalClients";
 import AnalyticClientMostGains from "./AnalyticClientMostGains";
 import AnalyticClientLocation from "./AnalyticClientLocation";
-import ClientsCard from "./ClientsCard";
 import ClientTable from "./ClientTable";
+import ClientsCard from "./ClientsCard";
 
 const ClientDashboard = ({clientData, invoiceData}) => {
   const [clientId, setClientId] = useState(null);

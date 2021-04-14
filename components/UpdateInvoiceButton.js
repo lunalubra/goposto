@@ -171,7 +171,12 @@ const UpdateInvoiceButton = ({invoiceObj, clients, callback}) => {
         onClick={onOpen}
       />
 
-      <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
+      <Modal
+        initialFocusRef={initialRef}
+        isOpen={isOpen}
+        onClose={onClose}
+        scrollBehavior="inside"
+      >
         <ModalOverlay />
         <form onSubmit={handleSubmit(onUpdateInvoice)}>
           <ModalContent>
