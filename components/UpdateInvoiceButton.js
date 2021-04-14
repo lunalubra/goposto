@@ -29,7 +29,6 @@ import {useEffect, useRef, useState} from "react";
 import {useForm} from "react-hook-form";
 import {mutate} from "swr";
 
-import handleUpdateItem from "@/utils/handleUpdateItem";
 import InvoiceItemform from "./InvoiceItemform";
 import {updateInvoice} from "@/lib/db";
 import {useAuth} from "@/lib/auth";
