@@ -6,16 +6,16 @@ const description =
 const SEO = {
   title,
   description,
-  canonical: "invoice-app-ivory.vercel.app",
+  canonical: "https://invoice-app-ivory.vercel.app/dashboard",
   openGraph: {
     type: "website",
     locale: "en_IE",
-    url: "invoice-app-ivory.vercel.app",
+    url: "https://invoice-app-ivory.vercel.app/dashboard",
     title,
     description,
     images: [
       {
-        url: "invoice-app-ivory.vercel.app/favicon.ico",
+        url: "https://invoice-app-ivory.vercel.app/dashboard/favicon.ico",
         alt: title,
         width: 1280,
         height: 720,
