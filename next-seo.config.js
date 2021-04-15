@@ -6,16 +6,16 @@ const description =
 const SEO = {
   title,
   description,
-  canonical: "https://invoice-app-ivory.vercel.app/dashboard",
+  canonical: "https://www.goposto.com/dashboard",
   openGraph: {
     type: "website",
     locale: "en_IE",
-    url: "https://invoice-app-ivory.vercel.app/dashboard",
+    url: "https://www.goposto.com/dashboard",
     title,
     description,
     images: [
       {
-        url: "https://invoice-app-ivory.vercel.app/dashboard/favicon.ico",
+        url: "https://www.goposto.com/dashboard/favicon.ico",
         alt: title,
         width: 1280,
         height: 720,
