@@ -32,7 +32,7 @@ const DashboardHeader = () => {
       >
         <Flex alignItems="center">
           <NextLink href="/" passHref>
-            <Image src="/posto.svg" width="100" height="100" alt="logo" />
+            <Image src="/posto.svg" width={100} height={100} alt="logo" />
           </NextLink>
           <Stack
             ml={6}
