@@ -30,15 +30,10 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#ffc40d" />
           <meta name="theme-color" content="#ffc40d" />
 
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com/"
-            crossOrigin=""
-          />
+          <style>
+            @import
+            url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap')
+          </style>
         </Head>
         <body>
           <Main />

@@ -31,13 +31,9 @@ const DashboardHeader = () => {
         p={5}
       >
         <Flex alignItems="center">
-          <Image
-            src="/posto.svg"
-            href="/"
-            width={100}
-            height={100}
-            alt="logo"
-          />
+          <NextLink href="/">
+            <Image src="/posto.svg" width={100} height={100} alt="logo" />
+          </NextLink>
           <Stack
             ml={6}
             mb={2}
