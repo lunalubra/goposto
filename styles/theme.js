@@ -1,4 +1,3 @@
-import {createBreakpoints} from "@chakra-ui/theme-tools";
 import {createIcon, extendTheme, Icon} from "@chakra-ui/react";
 
 const breakpoints = ["0em", "62em"];
@@ -39,7 +38,7 @@ const theme = extendTheme({
       100: "#f2f5fa",
       200: "#ffffff",
       300: "#000000",
-      400: "#99f",
+      400: "#1f9aff",
     },
   },
   styles: {

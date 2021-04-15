@@ -23,12 +23,11 @@ const CustomLabel = ({x, y, value, width}) => {
           />
           <Text
             as="text"
-            color="#000"
             fontWeight="semibold"
             fontSize={["md", "2xl"]}
             x={x + width / 2}
             y={y + height / 2}
-            fill="#000"
+            fill="#fff"
             textAnchor="middle"
             dominantBaseline="middle"
           >
@@ -51,12 +50,11 @@ const CustomLabel = ({x, y, value, width}) => {
           />
           <Text
             as="text"
-            color="#000"
             fontWeight="semibold"
             fontSize={["md", "2xl"]}
             x={x + width / 2}
             y={y - height / 2}
-            fill="#000"
+            fill="#fff"
             textAnchor="middle"
             dominantBaseline="middle"
           >

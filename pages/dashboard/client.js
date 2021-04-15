@@ -1,12 +1,13 @@
-import {Box, Text} from "@chakra-ui/layout";
+import {Box, Flex, Text} from "@chakra-ui/layout";
+import Head from "next/head";
 import useSWR from "swr";
 
+import DashboardSkeleton from "@/components/DashboardSkeleton";
 import ClientDashboard from "@/components/ClientDashboard";
 import DashboardHeader from "@/components/DashboarHeader";
 import GoogleButton from "@/components/GoogleButton";
 import fetcher from "@/utils/fetcher";
 import {useAuth} from "@/lib/auth";
-import Head from "next/head";
 
 export default function ClientDashboardPage() {
   const {user, loading, signinWithGoogle} = useAuth();
@@ -27,7 +28,12 @@ export default function ClientDashboardPage() {
         <Head>
           <title>Client dashboard</title>
         </Head>
-        <GoogleButton callback={signinWithGoogle} redirect="client" />
+        <DashboardSkeleton>
+          <Flex direction="column" alignItems="center">
+            <Text>Your are not logged </Text>
+            <GoogleButton callback={signinWithGoogle} redirect="client" />
+          </Flex>
+        </DashboardSkeleton>
       </>
     );
 
@@ -37,7 +43,9 @@ export default function ClientDashboardPage() {
         <Head>
           <title>Client dashboard</title>
         </Head>
-        <Text>An error ocurred while fetching the data</Text>
+        <DashboardSkeleton>
+          <Text>An error ocurred while fetching the data</Text>
+        </DashboardSkeleton>
       </>
     );
 
@@ -47,7 +55,9 @@ export default function ClientDashboardPage() {
         <Head>
           <title>Client dashboard</title>
         </Head>
-        <Text>Loading...</Text>
+        <DashboardSkeleton>
+          <Text>Loading...</Text>
+        </DashboardSkeleton>
       </>
     );
 

@@ -1,7 +1,6 @@
 import {
   Flex,
   Stack,
-  Button,
   IconButton,
   Link,
   Menu,
@@ -9,7 +8,7 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  Box,
+  Image,
 } from "@chakra-ui/react";
 import {SettingsIcon} from "@chakra-ui/icons";
 import {useRouter} from "next/router";
@@ -32,9 +31,7 @@ const DashboardHeader = () => {
       >
         <Flex alignItems="center">
           <NextLink href="/" passHref>
-            <Link fontSize="xl" fontWeight="semibold" mr={5}>
-              Logo
-            </Link>
+            <Image mt={1} src="/posto.svg" maxWidth="100px" mr={5} />
           </NextLink>
           <Stack display={["none", "flex"]} spacing={3} direction="row">
             <NextLink href="/dashboard" passHref>
@@ -73,11 +70,7 @@ const DashboardHeader = () => {
               </NextLink>
               <MenuDivider />
             </Flex>
-            <NextLink href="/dashboard/client" passHref>
-              <MenuItem>
-                <Link fontSize="lg">Manage account</Link>
-              </MenuItem>
-            </NextLink>
+
             <MenuItem
               onClick={() => {
                 signout();

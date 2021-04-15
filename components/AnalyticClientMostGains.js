@@ -75,7 +75,7 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
           <BarChart data={formatedClients}>
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#99f" stopOpacity={0.7} />
+                <stop offset="5%" stopColor="#1f9aff" stopOpacity={0.7} />
                 <stop offset="95%" stopColor="#fff" stopOpacity={0} />
               </linearGradient>
             </defs>

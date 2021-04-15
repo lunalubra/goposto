@@ -34,7 +34,6 @@ const CustomLabel = ({x, y, value, index, arrayLength}) => {
       />
       <Text
         as="text"
-        color="#000"
         fontWeight="semibold"
         fontSize="sm"
         x={x}

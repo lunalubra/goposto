@@ -3,11 +3,12 @@ import {useRouter} from "next/router";
 
 import {GoogleIcon} from "@/styles/theme";
 
-const GoogleButton = ({callback, redirect}) => {
+const GoogleButton = ({mt, icon, children, callback, redirect}) => {
   const router = useRouter();
 
   return (
     <Button
+      mt={mt ? mt : 0}
       aria-label="Continue whit google to login/register"
       onClick={async e => {
         await callback();
@@ -17,15 +18,14 @@ const GoogleButton = ({callback, redirect}) => {
       color="gray.900"
       variant="outline"
       fontWeight="medium"
-      leftIcon={<GoogleIcon />}
-      mt={4}
+      leftIcon={icon ? icon : <GoogleIcon />}
       _hover={{bg: "gray.100"}}
       _active={{
         bg: "gray.100",
         transform: "scale(0.95)",
       }}
     >
-      Continue with Google
+      {children || "Continue with Google"}
     </Button>
   );
 };

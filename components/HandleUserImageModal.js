@@ -67,8 +67,6 @@ const HandleUserImageModal = ({callback, prevImageUrl}) => {
     return <Text>Add an image!</Text>;
   }
 
-  console.log(imagesUrls);
-
   return (
     <>
       <Button
