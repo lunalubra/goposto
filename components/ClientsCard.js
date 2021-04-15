@@ -44,7 +44,7 @@ const ClientsCard = ({data, clientId, callback}) => {
         minW="100%"
         minH="100"
       >
-        <Avatar src={client.image} size="lg" />
+        <Avatar src={client.image} size="lg" name={client.name} />
       </Flex>
       <Flex mt={5} px={5} alignSelf="flex-start" direction="column" w="100%">
         <Text fontSize="lg" fontWeight="semibold">

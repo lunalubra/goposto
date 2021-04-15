@@ -14,12 +14,12 @@ const AnalyticClientTotalClients = ({children}) => {
       minH="100%"
       rounded={16}
     >
-      <Text color="white" fontSize="8xl" fontWeight="bold">
+      <Text color="black" fontSize="8xl" fontWeight="bold">
         {children}
       </Text>
       <Text
         textAlign="center"
-        color="white"
+        color="black"
         fontSize="2xl"
         fontWeight="semibold"
       >

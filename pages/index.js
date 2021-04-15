@@ -1,8 +1,8 @@
 import {Flex, Link, Text} from "@chakra-ui/layout";
 import {EditIcon} from "@chakra-ui/icons";
 import {Button} from "@chakra-ui/button";
-import {Image} from "@chakra-ui/image";
 import NextLink from "next/link";
+import Image from "next/image";
 import Head from "next/head";
 
 import GoogleButton from "@/components/GoogleButton";
@@ -23,7 +23,6 @@ export default function Home() {
             `,
           }}
         />
-        <title>logo</title>
       </Head>
       <Flex position="relative" direction="column" minW="100vw" minH="100vh">
         <Flex
@@ -33,7 +32,7 @@ export default function Home() {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Image src="/posto.svg" maxW="100px" />
+          <Image src="/posto.svg" width="100" height="100" alt="logo" />
           {loading ? (
             <Text>Loading</Text>
           ) : user ? (

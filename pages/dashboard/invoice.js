@@ -28,12 +28,14 @@ export default function InvoiceDashboardPage() {
         <Head>
           <title>Invoice Dashboard</title>
         </Head>
-        <DashboardSkeleton>
-          <Flex direction="column" alignItems="center">
-            <Text>Your are not logged </Text>
-            <GoogleButton callback={signinWithGoogle} redirect="invoice" />
-          </Flex>
-        </DashboardSkeleton>
+        <Box as="main">
+          <DashboardSkeleton>
+            <Flex direction="column" alignItems="center">
+              <Text>Your are not logged </Text>
+              <GoogleButton callback={signinWithGoogle} redirect="invoice" />
+            </Flex>
+          </DashboardSkeleton>
+        </Box>
       </>
     );
 
@@ -43,9 +45,11 @@ export default function InvoiceDashboardPage() {
         <Head>
           <title>Invoice Dashboard</title>
         </Head>
-        <DashboardSkeleton>
-          <Text>Loading...</Text>
-        </DashboardSkeleton>
+        <Box as="main">
+          <DashboardSkeleton>
+            <Text>Loading...</Text>
+          </DashboardSkeleton>
+        </Box>
       </>
     );
 
@@ -55,9 +59,11 @@ export default function InvoiceDashboardPage() {
         <Head>
           <title>Invoice Dashboard</title>
         </Head>
-        <DashboardSkeleton>
-          <Text>An error ocurred while fetching the data</Text>
-        </DashboardSkeleton>
+        <Box as="main">
+          <DashboardSkeleton>
+            <Text>An error ocurred while fetching the data</Text>
+          </DashboardSkeleton>
+        </Box>
       </>
     );
 
@@ -67,7 +73,7 @@ export default function InvoiceDashboardPage() {
         <title>Invoice Dashboard</title>
       </Head>
       <DashboardHeader />
-      <Box maxWidth="1250px" mx="auto">
+      <Box as="main" maxWidth="1250px" mx="auto">
         <InvoiceDashboard invoiceData={invoiceData} clientData={clientData} />
       </Box>
     </>

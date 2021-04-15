@@ -1,8 +1,10 @@
 import {Box, ChakraProvider} from "@chakra-ui/react";
+import {DefaultSeo} from "next-seo";
 import Head from "next/head";
 
 import {AuthProvider} from "@/lib/auth";
 import theme from "@/styles/theme";
+import SEO from "next-seo.config";
 
 const GlobalStyles = ({children}) => {
   return (
@@ -50,6 +52,7 @@ function MyApp({Component, pageProps}) {
     <ChakraProvider resetCSS theme={theme}>
       <AuthProvider>
         <GlobalStyles>
+          <DefaultSeo {...SEO} />
           <Component {...pageProps} />
         </GlobalStyles>
       </AuthProvider>

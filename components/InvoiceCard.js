@@ -120,11 +120,11 @@ const InvoiceCard = ({clientData, data, invoiceId, callback}) => {
           roundedBottomRight={12}
           roundedBottomLeft={[12, 0]}
         >
-          <Text color="white" fontSize="lg">
+          <Text color="black" fontSize="lg">
             Total amount
           </Text>
           &nbsp;
-          <Text color="white" fontWeight="semibold" fontSize="lg">
+          <Text color="black" fontWeight="semibold" fontSize="lg">
             {totalPriceCalculator(invoice?.items)}$
           </Text>
         </Flex>

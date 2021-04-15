@@ -95,7 +95,7 @@ const AddClientButtonModal = ({callback}) => {
         aria-label="add a new client"
         leftIcon={<AddIcon />}
         bg="brand.400"
-        colorScheme="white"
+        color="black"
         _hover={{opacity: "0.60"}}
         _active={{
           opacity: "0.80",

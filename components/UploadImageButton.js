@@ -57,7 +57,6 @@ export default function ImageUploader({callback}) {
           <Text>{progress}</Text>
         </>
       )}
-      {downloadURL && <Image src={downloadURL} />}
     </Box>
   );
 }

@@ -27,12 +27,14 @@ export default function Home() {
         <Head>
           <title>Welcome!</title>
         </Head>
-        <DashboardSkeleton>
-          <Flex direction="column" alignItems="center">
-            <Text>Your are not logged </Text>
-            <GoogleButton callback={signinWithGoogle} />
-          </Flex>
-        </DashboardSkeleton>
+        <Box as="main">
+          <DashboardSkeleton>
+            <Flex direction="column" alignItems="center">
+              <Text>Your are not logged </Text>
+              <GoogleButton callback={signinWithGoogle} />
+            </Flex>
+          </DashboardSkeleton>
+        </Box>
       </>
     );
 
@@ -42,9 +44,11 @@ export default function Home() {
         <Head>
           <title>Welcome!</title>
         </Head>
-        <DashboardSkeleton>
-          <Text>An error ocurred while fetching the data </Text>
-        </DashboardSkeleton>
+        <Box as="main">
+          <DashboardSkeleton>
+            <Text>An error ocurred while fetching the data </Text>
+          </DashboardSkeleton>
+        </Box>
       </>
     );
 
@@ -54,9 +58,11 @@ export default function Home() {
         <Head>
           <title>Welcome!</title>
         </Head>
-        <DashboardSkeleton>
-          <Text>Loading ...</Text>
-        </DashboardSkeleton>
+        <Box as="main">
+          <DashboardSkeleton>
+            <Text>Loading ...</Text>
+          </DashboardSkeleton>
+        </Box>
       </>
     );
 
@@ -66,7 +72,7 @@ export default function Home() {
         <title>Welcome!</title>
       </Head>
       <DashboardHeader />
-      <Box maxWidth="1250px" mx="auto">
+      <Box as="main" maxWidth="1250px" mx="auto">
         <InboxDashboard
           user={user}
           clientData={clientData}

@@ -127,7 +127,7 @@ const UpdateClientPopover = ({client, callback}) => {
           <ModalBody pb={6}>
             <Stack spacing="24px">
               <Flex direction="column" alignItems="center">
-                <Image src={clientImage} maxW="100" maxH="100" pb={5} />
+                <Image src={clientImage} width="100" height="100" pb={5} />
                 <HandleUserImageModal
                   callback={getImage}
                   prevImageUrl={client?.image}

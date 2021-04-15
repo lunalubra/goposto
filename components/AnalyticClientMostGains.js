@@ -105,6 +105,7 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
                 size={avatarSize}
                 onClick={() => callback(client.id)}
                 src={client.imageUrl}
+                name={client.name}
               />
             </Tooltip>
           ))}

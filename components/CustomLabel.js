@@ -27,7 +27,7 @@ const CustomLabel = ({x, y, value, width}) => {
             fontSize={["md", "2xl"]}
             x={x + width / 2}
             y={y + height / 2}
-            fill="#fff"
+            fill="#000"
             textAnchor="middle"
             dominantBaseline="middle"
           >
@@ -54,7 +54,7 @@ const CustomLabel = ({x, y, value, width}) => {
             fontSize={["md", "2xl"]}
             x={x + width / 2}
             y={y - height / 2}
-            fill="#fff"
+            fill="#000"
             textAnchor="middle"
             dominantBaseline="middle"
           >

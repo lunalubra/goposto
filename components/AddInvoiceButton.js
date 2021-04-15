@@ -126,7 +126,7 @@ const AddInvoiceButton = ({clients, callback}) => {
         aria-label="Add a new invoice"
         leftIcon={<AddIcon />}
         bg="brand.400"
-        colorScheme="white"
+        color="black"
         size="sm"
         _hover={{opacity: "0.60"}}
         _active={{
