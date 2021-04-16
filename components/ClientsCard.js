@@ -39,7 +39,7 @@ const ClientsCard = ({data, clientId, callback}) => {
       <Flex
         justifyContent="center"
         alignItems="center"
-        bgImage="url('/gradient.webp')"
+        bgImage="url('/gradient.jpg')"
         rounded={8}
         minW="100%"
         minH="100"

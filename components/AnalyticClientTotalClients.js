@@ -7,7 +7,7 @@ const AnalyticClientTotalClients = ({children}) => {
       alignItems="center"
       justifyContent="center"
       p={5}
-      bgImage="url('/gradient.webp')"
+      bgImage="url('/gradient.jpg')"
       maxW="100vw"
       minW={["39vw", "100%"]}
       maxH="100%"

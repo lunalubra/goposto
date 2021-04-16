@@ -90,7 +90,7 @@ export default function AnalyticInvoiceGains({invoiceData: {invoices}}) {
           direction="column"
           alignItems="center"
           justifyContent="center"
-          bgImage="url('/gradient.webp')"
+          bgImage="url('/gradient.jpg')"
           rounded={16}
         >
           <Flex minW={["105%", "102%"]} minH="100%" alignItems="flex-end">

@@ -66,7 +66,7 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
         alignItems="center"
         justifyContent="center"
         bg="brand.400"
-        bgImage="url('/gradient.webp')"
+        bgImage="url('/gradient.jpg')"
         rounded={8}
         overflowX="auto"
         minW="100%"

@@ -79,6 +79,7 @@ const DashboardSkeleton = ({children}) => {
           bg="brand.100"
           zIndex="1"
           rounded={8}
+          p={5}
         >
           {children}
         </Flex>

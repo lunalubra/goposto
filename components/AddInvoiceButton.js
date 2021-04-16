@@ -127,7 +127,7 @@ const AddInvoiceButton = ({clients, callback}) => {
       <Button
         aria-label="Add a new invoice"
         leftIcon={<AddIcon />}
-        bgImage="url('/gradient.webp')"
+        bgImage="url('/gradient.jpg')"
         color="white"
         size="sm"
         _hover={{opacity: "0.60"}}

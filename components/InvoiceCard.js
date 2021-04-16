@@ -116,7 +116,7 @@ const InvoiceCard = ({clientData, data, invoiceId, callback}) => {
           justifyContent="space-between"
           justifySelf="flex-end"
           p={3}
-          bgImage="url('/gradient.webp')"
+          bgImage="url('/gradient.jpg')"
           roundedBottomRight={12}
           roundedBottomLeft={[12, 0]}
         >

@@ -20,7 +20,7 @@ const GlobalStyles = ({children}) => {
           zIndex="0"
           w={["50vw", "30vw"]}
           h={["50vw", "30vw"]}
-          bgImage="url('/gradient.webp')"
+          bgImage="url('/gradient.jpg')"
           rounded="full"
           sx={{
             filter: "blur( 100.0px )",
@@ -33,7 +33,7 @@ const GlobalStyles = ({children}) => {
           zIndex="0"
           w={["50vw", "30vw"]}
           h={["50vw", "30vw"]}
-          bgImage="url('/gradient.webp')"
+          bgImage="url('/gradient.jpg')"
           rounded="full"
           sx={{
             filter: "blur( 100.0px )",
