@@ -7,6 +7,7 @@ import Head from "next/head";
 
 import GoogleButton from "@/components/GoogleButton";
 import {useAuth} from "@/lib/auth";
+import WelcomeCard from "@/components/WelcomeCard";
 
 export default function Home() {
   const {user, loading, signinWithGoogle} = useAuth();
@@ -24,7 +25,7 @@ export default function Home() {
           }}
         />
       </Head>
-      <Flex position="relative" direction="column" minW="100vw" minH="100vh">
+      <Flex bg="white" position="relative" direction="column" minW="100vw">
         <Flex
           position="sticky"
           p={2}
@@ -32,7 +33,7 @@ export default function Home() {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Image src="/posto.svg" width="100" height="100" alt="logo" />
+          <Image src="/posto.svg" width={80} height={20} alt="logo" />
           {loading ? (
             <Text>Loading</Text>
           ) : user ? (
@@ -61,13 +62,22 @@ export default function Home() {
             fontSize="xl"
             fontWeight="semibold"
             textAlign="center"
+            pb="96px"
           >
             Posto is a new way of handeling invoices & clients for freelancers
           </Text>
-          <GoogleButton mt={5} icon={<EditIcon />} callback={signinWithGoogle}>
-            Try it for free!
-          </GoogleButton>
         </Flex>
+      </Flex>
+      <Flex
+        marginY={10}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <WelcomeCard />
+        <GoogleButton mt={5} icon={<EditIcon />} callback={signinWithGoogle}>
+          Try it for free!
+        </GoogleButton>
       </Flex>
     </>
   );

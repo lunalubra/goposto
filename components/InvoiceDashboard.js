@@ -1,7 +1,9 @@
-import {Grid, GridItem, Text} from "@chakra-ui/layout";
+import {Flex, Grid, GridItem, Text} from "@chakra-ui/layout";
 import {useState} from "react";
 
 import AnalyticInvoiceGains from "./AnalyticInvoiceGains";
+import DashboardSkeleton from "./DashboardSkeleton";
+import AddInvoiceButton from "./AddInvoiceButton";
 import InvoiceTable from "./InvoiceTable";
 import InvoiceCard from "./InvoiceCard";
 
@@ -13,7 +15,17 @@ const InvoiceDashboard = ({invoiceData, clientData}) => {
   };
 
   if (invoiceData.invoices.length === 0) {
-    return <Text>Create an invoice!</Text>;
+    return (
+      <DashboardSkeleton>
+        <Flex direction="column" justifyItems="center" alignItems="center">
+          <Text mb={5}>Create an invoice!</Text>
+          <AddInvoiceButton
+            callback={getInvoiceId}
+            clients={clientData.clients}
+          />
+        </Flex>
+      </DashboardSkeleton>
+    );
   }
 
   return (

@@ -71,7 +71,7 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
         minW="100%"
         minH="100%"
       >
-        <ResponsiveContainer width="100%" height="100%" aspect={3} debounce={3}>
+        <ResponsiveContainer width="100%" height="50%" aspect={3} debounce={3}>
           <BarChart data={formatedClients}>
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -103,7 +103,6 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
             >
               <Avatar
                 size={avatarSize}
-                onClick={() => callback(client.id)}
                 src={client.imageUrl}
                 name={client.name}
               />

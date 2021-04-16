@@ -63,10 +63,6 @@ const HandleUserImageModal = ({callback, prevImageUrl}) => {
     return <Text>Loading...</Text>;
   }
 
-  if (imagesUrls.length === 0) {
-    return <Text>Add an image!</Text>;
-  }
-
   return (
     <>
       <Button

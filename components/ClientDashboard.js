@@ -1,9 +1,12 @@
-import {Grid, GridItem, Text} from "@chakra-ui/layout";
+import {Flex, Grid, GridItem, Link, Text} from "@chakra-ui/layout";
+import NextLink from "next/link";
 import {useState} from "react";
 
 import AnalyticsClientTotalClients from "./AnalyticClientTotalClients";
 import AnalyticClientMostGains from "./AnalyticClientMostGains";
 import AnalyticClientLocation from "./AnalyticClientLocation";
+import AddClientButtonModal from "./AddClientButtonModal";
+import DashboardSkeleton from "./DashboardSkeleton";
 import ClientTable from "./ClientTable";
 import ClientsCard from "./ClientsCard";
 
@@ -14,10 +17,15 @@ const ClientDashboard = ({clientData, invoiceData}) => {
     setClientId(client);
   };
 
-  if (clientData.clients.length === 0) return <Text>Create a client!</Text>;
-
-  if (invoiceData.invoices.length === 0)
-    return <Text>No invoice information yet </Text>;
+  if (clientData.clients.length === 0)
+    return (
+      <DashboardSkeleton>
+        <Flex direction="column" justifyItems="center" alignItems="center">
+          <Text mb={5}>Create your first client!</Text>
+          <AddClientButtonModal callback={getClientId} />
+        </Flex>
+      </DashboardSkeleton>
+    );
 
   return (
     <Grid gap={[3, 5]} mr={[0, 5]} mt={5} justifyItems={["center", "initial"]}>
@@ -28,11 +36,31 @@ const ClientDashboard = ({clientData, invoiceData}) => {
         rowSpan={[1]}
         maxW="100%"
       >
-        <AnalyticClientMostGains
-          clients={clientData.clients}
-          invoices={invoiceData.invoices}
-          callback={getClientId}
-        />
+        {invoiceData.invoices.length === 0 ? (
+          <Flex
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            minW="100%"
+            minH="100%"
+            bg="brand.400"
+            rounded={16}
+          >
+            <NextLink href="/dashboard/invoice">
+              <Link href="/dashboard/invoice">
+                <Text fontSize="lg" fontWeight="semibold">
+                  Start adding inovices to unlock the full potential!
+                </Text>
+              </Link>
+            </NextLink>
+          </Flex>
+        ) : (
+          <AnalyticClientMostGains
+            clients={clientData.clients}
+            invoices={invoiceData.invoices}
+            callback={getClientId}
+          />
+        )}
       </GridItem>
       <GridItem
         justifySelf={["end", "none"]}

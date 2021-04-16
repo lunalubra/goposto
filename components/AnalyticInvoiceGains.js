@@ -103,8 +103,26 @@ export default function AnalyticInvoiceGains({invoiceData: {invoices}}) {
                   </linearGradient>
                 </defs>
                 <Tooltip
-                  datakey="createdAtFormated"
                   payload={invoiceGainsData}
+                  content={props => {
+                    console.log(props);
+                    return (
+                      <Flex
+                        alignItems="center"
+                        justifyContent="center"
+                        bg="white"
+                        rounded={8}
+                        opacity={0.8}
+                        py={5}
+                        px={2}
+                      >
+                        <Text>
+                          {props.payload[0]?.payload?.createdAtFormated}:{" "}
+                          {props.payload[0]?.payload?.totalAmount}$
+                        </Text>
+                      </Flex>
+                    );
+                  }}
                 />
                 <Area
                   type="monotone"

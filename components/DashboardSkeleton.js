@@ -66,8 +66,8 @@ const DashboardSkeleton = ({children}) => {
         maxW="1250px"
         direction="column"
         justifyContent="center"
-        mx="auto"
         position="relative"
+        mx="auto"
       >
         <Flex
           alignSelf="center"

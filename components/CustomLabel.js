@@ -1,13 +1,14 @@
 import {Flex, Text} from "@chakra-ui/layout";
-import {useEffect} from "react";
 
 const CustomLabel = ({x, y, value, width}) => {
   const height = width / 2,
     padding = (width * 1) / 10;
 
+  console.log(y, height);
+
   return (
     <Flex as="g">
-      {value > 1000 ? (
+      {height > y ? (
         <>
           <rect
             x={x + padding / 2}
@@ -38,7 +39,7 @@ const CustomLabel = ({x, y, value, width}) => {
         <>
           <rect
             x={x + padding / 2}
-            y={y - height}
+            y={y - height / 2}
             rx={8}
             ry={8}
             width={width - padding}
@@ -53,7 +54,7 @@ const CustomLabel = ({x, y, value, width}) => {
             fontWeight="semibold"
             fontSize={["md", "2xl"]}
             x={x + width / 2}
-            y={y - height / 2}
+            y={y}
             fill="#000"
             textAnchor="middle"
             dominantBaseline="middle"

@@ -23,10 +23,12 @@ import {
   Text,
   Badge,
   Divider,
+  Link,
 } from "@chakra-ui/react";
 import {AddIcon, ChevronDownIcon} from "@chakra-ui/icons";
 import {useForm} from "react-hook-form";
 import {useRef, useState} from "react";
+import NextLink from "next/link";
 import {mutate} from "swr";
 
 import InvoiceItemform from "./InvoiceItemform";
@@ -190,7 +192,11 @@ const AddInvoiceButton = ({clients, callback}) => {
                         </MenuButton>
                         <MenuList>
                           {clients.length === 0 ? (
-                            <Text>Add a client!</Text>
+                            <NextLink href="/dashboard/client">
+                              <Link href="/dashboard/client" ml={5}>
+                                Add a client first!
+                              </Link>
+                            </NextLink>
                           ) : (
                             clients?.map(client => (
                               <MenuItem key={client.id} minH="48px">

@@ -32,28 +32,28 @@ const DashboardHeader = () => {
       >
         <Flex alignItems="center">
           <NextLink href="/">
-            <Image src="/posto.svg" width={100} height={100} alt="logo" />
+            <Image src="/posto.svg" width={80} height={20} alt="logo" />
           </NextLink>
           <Stack
             ml={6}
-            mb={2}
+            mb={1}
             display={["none", "flex"]}
             spacing={3}
             direction="row"
           >
-            <NextLink href="/dashboard" passHref>
-              <Link href="/dashboard" fontSize="lg">
+            <NextLink href="/dashboard">
+              <Link href="/dashboard" as="a" fontSize="lg">
                 Inbox
               </Link>
             </NextLink>
-            <NextLink href="/dashboard/invoice" passHref>
-              <Link href="/dashboard/invoice" fontSize="lg">
-                Invoices
+            <NextLink href="/dashboard/client">
+              <Link href="/dashboard/client" as="a" fontSize="lg">
+                Clients
               </Link>
             </NextLink>
-            <NextLink href="/dashboard/client" passHref>
-              <Link href="/dashboard/client" fontSize="lg">
-                Clients
+            <NextLink href="/dashboard/invoice">
+              <Link href="/dashboard/invoice" as="a" fontSize="lg">
+                Invoices
               </Link>
             </NextLink>
           </Stack>
@@ -66,24 +66,24 @@ const DashboardHeader = () => {
           />
           <MenuList>
             <Flex direction="column" display={["flex", "none"]}>
-              <NextLink href="/dashboard" passHref>
+              <NextLink href="/dashboard">
                 <MenuItem>
-                  <Link href="/dashboard" fontSize="lg">
+                  <Link href="/dashboard" as="a" fontSize="lg">
                     Inbox
                   </Link>
                 </MenuItem>
               </NextLink>
-              <NextLink href="/dashboard/invoice" passHref>
+              <NextLink href="/dashboard/client">
                 <MenuItem>
-                  <Link href="/dashboard/invoice" fontSize="lg">
-                    Invoices
+                  <Link href="/dashboard/client" as="a" fontSize="lg">
+                    Clients
                   </Link>
                 </MenuItem>
               </NextLink>
-              <NextLink href="/dashboard/client" passHref>
+              <NextLink href="/dashboard/invoice">
                 <MenuItem>
-                  <Link href="/dashboard/client" fontSize="lg">
-                    Clients
+                  <Link href="/dashboard/invoice" as="a" fontSize="lg">
+                    Invoices
                   </Link>
                 </MenuItem>
               </NextLink>

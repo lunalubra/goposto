@@ -1,4 +1,4 @@
-import {Flex} from "@chakra-ui/layout";
+import {Flex, Text} from "@chakra-ui/layout";
 import {useEffect, useState} from "react";
 import {PieChart, Pie, Cell, Tooltip, ResponsiveContainer} from "recharts";
 
@@ -62,7 +62,28 @@ export default function AnalyticClientLocation({clientData: {clients}}) {
                 />
               ))}
             </Pie>
-            <Tooltip />
+            <Tooltip
+              payload={arrayOfCountries}
+              content={props => {
+                console.log(props.payload[0]?.payload?.payload);
+                return (
+                  <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    bg="white"
+                    rounded={8}
+                    opacity={0.8}
+                    py={5}
+                    px={2}
+                  >
+                    <Text>
+                      {props.payload[0]?.payload?.payload?.country}:{" "}
+                      {props.payload[0]?.payload?.payload?.value}
+                    </Text>
+                  </Flex>
+                );
+              }}
+            />
           </PieChart>
         </ResponsiveContainer>
       </Flex>
