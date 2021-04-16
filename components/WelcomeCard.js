@@ -8,11 +8,12 @@ const WelcomeCard = () => {
       alignItems="center"
       justifyContent="center"
       maxW="1250px"
-      bg="brand.400"
+      bgColor="brand.400"
+      bgImage="url('gradient.webp')"
       rounded={16}
       p={[10]}
     >
-      <Text fontSize="xl" fontWeight="semibold" color="black" pb={5}>
+      <Text fontSize="xl" fontWeight="semibold" color="white" pb={5}>
         But... ¿How does it work?
       </Text>
       <Divider mb="5" />
@@ -27,7 +28,7 @@ const WelcomeCard = () => {
           justifySelf="start"
           fontSize="lg"
           fontWeight="semibold"
-          color="black"
+          color="white"
           maxW={["120px", "150px"]}
         >
           1. Create an account using Google!
@@ -36,7 +37,7 @@ const WelcomeCard = () => {
           justifySelf="end"
           fontSize="lg"
           fontWeight="semibold"
-          color="black"
+          color="white"
           maxW={["120px", "150px"]}
         >
           2. Start adding clients and invoices!
@@ -57,7 +58,7 @@ const WelcomeCard = () => {
           justifySelf="start"
           fontSize="lg"
           fontWeight="semibold"
-          color="black"
+          color="white"
           maxW={["120px", "150px"]}
         >
           3. Recive up to date real anaylitcs related to your clients an

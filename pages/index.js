@@ -26,13 +26,7 @@ export default function Home() {
         />
       </Head>
       <Flex bg="white" position="relative" direction="column" minW="100vw">
-        <Flex
-          position="sticky"
-          p={2}
-          minW="100vw"
-          alignItems="center"
-          justifyContent="space-between"
-        >
+        <Flex minW="100vw" p={2} justifyContent="space-between">
           <Image src="/posto.svg" width={80} height={20} alt="logo" />
           {loading ? (
             <Text>Loading</Text>
