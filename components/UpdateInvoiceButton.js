@@ -160,7 +160,7 @@ const UpdateInvoiceButton = ({invoiceObj, clients, callback}) => {
       <IconButton
         aria-label="Edit invoice"
         ml={3}
-        bg="brand.400"
+        bgImage="url('/gradient.webp')"
         colorScheme="white"
         _hover={{opacity: "0.6"}}
         _active={{

@@ -103,7 +103,7 @@ const UpdateClientPopover = ({client, callback}) => {
       <IconButton
         aria-label="Edit client information"
         ml={3}
-        bg="brand.400"
+        bgImage="url('/gradient.webp')"
         colorScheme="white"
         _hover={{opacity: "0.6"}}
         _active={{

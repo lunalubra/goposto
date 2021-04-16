@@ -116,15 +116,15 @@ const InvoiceCard = ({clientData, data, invoiceId, callback}) => {
           justifyContent="space-between"
           justifySelf="flex-end"
           p={3}
-          bg="brand.400"
+          bgImage="url('/gradient.webp')"
           roundedBottomRight={12}
           roundedBottomLeft={[12, 0]}
         >
-          <Text color="black" fontSize="lg">
+          <Text color="white" fontSize="lg">
             Total amount
           </Text>
           &nbsp;
-          <Text color="black" fontWeight="semibold" fontSize="lg">
+          <Text color="white" fontWeight="semibold" fontSize="lg">
             {totalPriceCalculator(invoice?.items)}$
           </Text>
         </Flex>

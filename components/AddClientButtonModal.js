@@ -94,8 +94,8 @@ const AddClientButtonModal = ({callback}) => {
       <Button
         aria-label="add a new client"
         leftIcon={<AddIcon />}
-        bg="brand.400"
-        color="black"
+        bgImage="url('/gradient.webp')"
+        color="white"
         _hover={{opacity: "0.60"}}
         _active={{
           opacity: "0.80",

@@ -7,19 +7,19 @@ const AnalyticClientTotalClients = ({children}) => {
       alignItems="center"
       justifyContent="center"
       p={5}
-      bg="brand.400"
+      bgImage="url('/gradient.webp')"
       maxW="100vw"
       minW={["39vw", "100%"]}
       maxH="100%"
       minH="100%"
       rounded={16}
     >
-      <Text color="black" fontSize="8xl" fontWeight="bold">
+      <Text color="white" fontSize="8xl" fontWeight="bold">
         {children}
       </Text>
       <Text
         textAlign="center"
-        color="black"
+        color="white"
         fontSize="2xl"
         fontWeight="semibold"
       >

@@ -20,10 +20,10 @@ const GlobalStyles = ({children}) => {
           zIndex="0"
           w={["50vw", "30vw"]}
           h={["50vw", "30vw"]}
-          bgGradient="radial(#1469ff, #fff )"
+          bgImage="url('/gradient.webp')"
           rounded="full"
           sx={{
-            filter: "blur( 20.0px )",
+            filter: "blur( 100.0px )",
           }}
         ></Box>
         <Box
@@ -33,10 +33,10 @@ const GlobalStyles = ({children}) => {
           zIndex="0"
           w={["50vw", "30vw"]}
           h={["50vw", "30vw"]}
-          bgGradient="radial(#342ead, #fff)"
+          bgImage="url('/gradient.webp')"
           rounded="full"
           sx={{
-            filter: "blur( 20.0px )",
+            filter: "blur( 100.0px )",
           }}
         ></Box>
         <Box position="relative" zIndex="1">

@@ -2,7 +2,17 @@ import {Flex, Text} from "@chakra-ui/layout";
 import {useEffect, useState} from "react";
 import {PieChart, Pie, Cell, Tooltip, ResponsiveContainer} from "recharts";
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const COLORS = [
+  "#FEA482",
+  "#AB1BFF",
+  "#FF7BA8",
+  "#FEA482",
+  "#AB1BFF",
+  "#FF7BA8",
+  "#FEA482",
+  "#AB1BFF",
+  "#FF7BA8",
+];
 
 export default function AnalyticClientLocation({clientData: {clients}}) {
   const [arrayOfCountries, setArrayOfCountries] = useState([]);
@@ -35,11 +45,15 @@ export default function AnalyticClientLocation({clientData: {clients}}) {
       maxW="100vw"
       minH="100%"
       maxH="100%"
+      direction="column"
       bg="white"
       rounded={16}
       alignItems="center"
       justifyContent="center"
     >
+      <Text textAlign="center" fontSize="lg" fontWeight="semibold">
+        Clients Locations
+      </Text>
       <Flex
         minW={["50vw", "200px"]}
         maxW="100%"

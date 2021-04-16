@@ -38,7 +38,7 @@ const CustomLabel = ({x, y, value, index, arrayLength}) => {
         fontSize="sm"
         x={x}
         y={y}
-        fill="#000"
+        fill="#fff"
         textAnchor="middle"
         dominantBaseline="middle"
       >
@@ -90,7 +90,7 @@ export default function AnalyticInvoiceGains({invoiceData: {invoices}}) {
           direction="column"
           alignItems="center"
           justifyContent="center"
-          bg="brand.400"
+          bgImage="url('/gradient.webp')"
           rounded={16}
         >
           <Flex minW={["105%", "102%"]} minH="100%" alignItems="flex-end">
@@ -127,7 +127,7 @@ export default function AnalyticInvoiceGains({invoiceData: {invoices}}) {
                 <Area
                   type="monotone"
                   dataKey="totalAmount"
-                  stroke="#fff"
+                  stroke="#F8E9C9"
                   strokeWidth={5}
                   fillOpacity={1}
                   fill="url(#colorUv)"
