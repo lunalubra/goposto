@@ -1,4 +1,4 @@
-# For more details go to [my personal web](lucasacosta.vercel.app/#proyecto)
+# For more details go to [my personal web](https://lucasacosta.vercel.app/#proyecto)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
