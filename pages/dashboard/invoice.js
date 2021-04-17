@@ -31,7 +31,9 @@ export default function InvoiceDashboardPage() {
         <Box as="main">
           <DashboardSkeleton>
             <Flex direction="column" alignItems="center">
-              <Text>Your are not logged </Text>
+              <Text color="white" fontSize="lg" fontWeight="semibold">
+                Your are not logged{" "}
+              </Text>
               <GoogleButton callback={signinWithGoogle} redirect="invoice" />
             </Flex>
           </DashboardSkeleton>
@@ -47,7 +49,9 @@ export default function InvoiceDashboardPage() {
         </Head>
         <Box as="main">
           <DashboardSkeleton>
-            <Text>Loading...</Text>
+            <Text color="white" fontSize="lg" fontWeight="semibold">
+              Loading...
+            </Text>
           </DashboardSkeleton>
         </Box>
       </>
@@ -61,7 +65,9 @@ export default function InvoiceDashboardPage() {
         </Head>
         <Box as="main">
           <DashboardSkeleton>
-            <Text>An error ocurred while fetching the data</Text>
+            <Text color="white" fontSize="lg" fontWeight="semibold">
+              An error ocurred while fetching the data
+            </Text>
           </DashboardSkeleton>
         </Box>
       </>

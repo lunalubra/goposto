@@ -21,7 +21,9 @@ const ClientDashboard = ({clientData, invoiceData}) => {
     return (
       <DashboardSkeleton>
         <Flex direction="column" justifyItems="center" alignItems="center">
-          <Text mb={5}>Create your first client!</Text>
+          <Text color="white" fontSize="lg" fontWeight="semibold" mb={5}>
+            Create your first client!
+          </Text>
           <AddClientButtonModal callback={getClientId} />
         </Flex>
       </DashboardSkeleton>
@@ -38,17 +40,19 @@ const ClientDashboard = ({clientData, invoiceData}) => {
       >
         {invoiceData.invoices.length === 0 ? (
           <Flex
+            minW="100%"
+            maxW="90vw"
+            minH="100%"
+            p={5}
             direction="column"
             justifyContent="center"
             alignItems="center"
-            minW="100%"
-            minH="100%"
-            bg="brand.400"
+            bgImage="url('/gradient.jpg')"
             rounded={16}
           >
             <NextLink href="/dashboard/invoice">
               <Link href="/dashboard/invoice">
-                <Text fontSize="lg" fontWeight="semibold">
+                <Text color="white" fontSize="lg" fontWeight="semibold">
                   Start adding inovices to unlock the full potential!
                 </Text>
               </Link>

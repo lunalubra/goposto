@@ -9,7 +9,9 @@ export default function Custom404() {
   return (
     <DashboardSkeleton>
       <Flex p={3} direction="column" alignItems="center">
-        <Text>This page could not be found</Text>
+        <Text color="white" fontSize="lg" fontWeight="semibold">
+          This page could not be found
+        </Text>
         <Flex direction="row" alignItems="center" pt={2}>
           <NextLink href="/dashboard/" passHref>
             <Button bg="white" leftIcon={<ArrowLeftIcon />}>

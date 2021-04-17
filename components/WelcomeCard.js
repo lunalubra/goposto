@@ -8,7 +8,7 @@ const WelcomeCard = () => {
       alignItems="center"
       justifyContent="center"
       maxW="1250px"
-      bgImage="url('gradient.jpg')"
+      bgImage="url('/gradient.jpg')"
       rounded={16}
       p={[10]}
     >

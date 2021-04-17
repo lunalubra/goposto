@@ -101,6 +101,16 @@ export default function AnalyticInvoiceGains({invoiceData: {invoices}}) {
                     <stop offset="5%" stopColor="#fff" stopOpacity={0.7} />
                     <stop offset="95%" stopColor="#fff" stopOpacity={0} />
                   </linearGradient>
+                  <linearGradient
+                    id="strokeGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="5%" stopColor="#fff" stopOpacity={0.7} />
+                    <stop offset="95%" stopColor="#fff" stopOpacity={0} />
+                  </linearGradient>
                 </defs>
                 <Tooltip
                   payload={invoiceGainsData}
@@ -127,7 +137,7 @@ export default function AnalyticInvoiceGains({invoiceData: {invoices}}) {
                 <Area
                   type="monotone"
                   dataKey="totalAmount"
-                  stroke="#F8E9C9"
+                  stroke="url(#strokeGradient)"
                   strokeWidth={5}
                   fillOpacity={1}
                   fill="url(#colorUv)"

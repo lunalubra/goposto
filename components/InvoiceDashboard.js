@@ -18,7 +18,9 @@ const InvoiceDashboard = ({invoiceData, clientData}) => {
     return (
       <DashboardSkeleton>
         <Flex direction="column" justifyItems="center" alignItems="center">
-          <Text mb={5}>Create an invoice!</Text>
+          <Text color="white" fontSize="lg" fontWeight="semibold" mb={5}>
+            Create an invoice!
+          </Text>
           <AddInvoiceButton
             callback={getInvoiceId}
             clients={clientData.clients}

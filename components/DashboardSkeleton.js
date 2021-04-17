@@ -76,7 +76,7 @@ const DashboardSkeleton = ({children}) => {
           position="absolute"
           alignItems="center"
           justifyContent="center"
-          bg="brand.100"
+          bgImage="url('/gradient.jpg')"
           zIndex="1"
           rounded={8}
           p={5}
