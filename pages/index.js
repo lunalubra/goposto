@@ -4,7 +4,8 @@ import {
   Heading,
   Stack,
   Text,
-  Button
+  Button,
+  Link
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { NextLink } from 'next/link';
