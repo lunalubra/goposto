@@ -8,7 +8,7 @@ import {
   Link
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import { NextLink } from 'next/link';
+import NextLink from 'next/link';
 import Image from 'next/image';
 
 import { Illustration } from '@/components/Ilustration';
