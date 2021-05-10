@@ -1,16 +1,16 @@
-import totalPriceCalculator from "@/utils/totalPriceCalculator";
-import {Flex, Text} from "@chakra-ui/layout";
+import totalPriceCalculator from '@/utils/totalPriceCalculator';
+import { Flex, Text } from '@chakra-ui/layout';
 import {
   AreaChart,
   Area,
   ResponsiveContainer,
   Tooltip,
-  LabelList,
-} from "recharts";
+  LabelList
+} from 'recharts';
 
-import AnalyticTotalGains from "./AnalyticTotalGains";
+import AnalyticTotalGains from './AnalyticTotalGains';
 
-const CustomLabel = ({x, y, value, index, arrayLength}) => {
+const CustomLabel = ({ x, y, value, index, arrayLength }) => {
   const width = 40,
     height = width / 2;
 
@@ -28,8 +28,8 @@ const CustomLabel = ({x, y, value, index, arrayLength}) => {
         width={width + 8}
         height={height + 8}
         style={{
-          fill: "#fff",
-          opacity: "0.5",
+          fill: '#fff',
+          opacity: '0.5'
         }}
       />
       <Text
@@ -48,24 +48,24 @@ const CustomLabel = ({x, y, value, index, arrayLength}) => {
   );
 };
 
-export default function AnalyticInvoiceGains({invoiceData: {invoices}}) {
+export default function AnalyticInvoiceGains({ invoiceData: { invoices } }) {
   const invoiceGainsData = invoices
-    ?.map(invoice => {
+    ?.map((invoice) => {
       const totalAmount = totalPriceCalculator(invoice.items);
       const createdAt = new Date(invoice?.createdAt?._seconds * 1000);
       const createdAtFormated = createdAt
         .toString()
-        .split(" ")
+        .split(' ')
         .slice(0, 3)
-        .join(" ");
-      return {createdAtFormated, totalAmount};
+        .join(' ');
+      return { createdAtFormated, totalAmount };
     })
     .reverse();
 
   return (
     <Flex
-      maxW={["90vw", "100%"]}
-      minW={["90vw", "100%"]}
+      maxW={['90vw', '100%']}
+      minW={['90vw', '100%']}
       minH="100%"
       direction="column"
       bg="brand.200"
@@ -93,7 +93,7 @@ export default function AnalyticInvoiceGains({invoiceData: {invoices}}) {
           bgImage="url('/gradient.jpg')"
           rounded={16}
         >
-          <Flex minW={["105%", "102%"]} minH="100%" alignItems="flex-end">
+          <Flex minW={['105%', '102%']} minH="100%" alignItems="flex-end">
             <ResponsiveContainer width="100%" height="100%" aspect={2}>
               <AreaChart width={730} height={250} data={invoiceGainsData}>
                 <defs>
@@ -114,8 +114,7 @@ export default function AnalyticInvoiceGains({invoiceData: {invoices}}) {
                 </defs>
                 <Tooltip
                   payload={invoiceGainsData}
-                  content={props => {
-                    console.log(props);
+                  content={(props) => {
                     return (
                       <Flex
                         alignItems="center"
@@ -127,7 +126,7 @@ export default function AnalyticInvoiceGains({invoiceData: {invoices}}) {
                         px={2}
                       >
                         <Text>
-                          {props.payload[0]?.payload?.createdAtFormated}:{" "}
+                          {props.payload[0]?.payload?.createdAtFormated}:{' '}
                           {props.payload[0]?.payload?.totalAmount}$
                         </Text>
                       </Flex>

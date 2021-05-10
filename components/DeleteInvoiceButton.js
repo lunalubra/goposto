@@ -1,4 +1,4 @@
-import {DeleteIcon} from "@chakra-ui/icons";
+import { DeleteIcon } from '@chakra-ui/icons';
 import {
   Popover,
   PopoverTrigger,
@@ -11,39 +11,40 @@ import {
   IconButton,
   Portal,
   useToast,
-  useDisclosure,
-} from "@chakra-ui/react";
-import {mutate} from "swr";
+  useDisclosure
+} from '@chakra-ui/react';
+import { mutate } from 'swr';
 
-import {deleteInvoice} from "@/lib/db";
-import {useAuth} from "@/lib/auth";
+import { deleteInvoice } from '@/lib/db';
+import { useAuth } from '@/lib/auth';
 
-const DeleteInvoiceButton = ({invoiceId, callback}) => {
-  const {onOpen, onClose, isOpen} = useDisclosure();
-  const {user} = useAuth();
+const DeleteInvoiceButton = ({ invoiceId, callback }) => {
+  const { onOpen, onClose, isOpen } = useDisclosure();
+  const { user } = useAuth();
   const toast = useToast();
 
-  const onDeleteInvoice = id => {
-    const {error} = deleteInvoice(id);
+  const onDeleteInvoice = (id) => {
+    const { error } = deleteInvoice(id);
     if (error) {
-      console.log(error);
       toast({
-        title: "An error ocurred while deleting the inovice...",
-        status: "error",
+        title: 'An error ocurred while deleting the inovice...',
+        status: 'error',
         duration: 4000,
-        isClosable: true,
+        isClosable: true
       });
     } else {
       toast({
-        title: "Successfuly deleted the invoice",
-        status: "success",
+        title: 'Successfuly deleted the invoice',
+        status: 'success',
         duration: 4000,
-        isClosable: true,
+        isClosable: true
       });
       mutate(
-        ["/api/invoices", user.token],
-        data => ({
-          invoices: data?.invoices?.filter(invoice => invoice.id !== invoiceId),
+        ['/api/invoices', user.token],
+        (data) => ({
+          invoices: data?.invoices?.filter(
+            (invoice) => invoice.id !== invoiceId
+          )
         }),
         false
       );
@@ -61,10 +62,10 @@ const DeleteInvoiceButton = ({invoiceId, callback}) => {
           aria-label="Delete invoice"
           bg="red"
           colorScheme="white"
-          _hover={{bg: "red.600"}}
+          _hover={{ bg: 'red.600' }}
           _active={{
-            bg: "red.700",
-            transform: "scale(0.95)",
+            bg: 'red.700',
+            transform: 'scale(0.95)'
           }}
           icon={<DeleteIcon />}
         />
@@ -79,10 +80,10 @@ const DeleteInvoiceButton = ({invoiceId, callback}) => {
           <PopoverBody alignSelf="flex-end">
             <Button
               aria-label="delete invoice"
-              _hover={{bg: "red.600"}}
+              _hover={{ bg: 'red.600' }}
               _active={{
-                bg: "red.700",
-                transform: "scale(0.95)",
+                bg: 'red.700',
+                transform: 'scale(0.95)'
               }}
               colorScheme="red"
               onClick={() => {
