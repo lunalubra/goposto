@@ -1,19 +1,19 @@
-import {Bar, BarChart, LabelList, ResponsiveContainer} from "recharts";
-import {Tooltip, useBreakpointValue} from "@chakra-ui/react";
-import {Avatar} from "@chakra-ui/avatar";
-import {Flex} from "@chakra-ui/layout";
-import {useEffect} from "react";
+import { Bar, BarChart, LabelList, ResponsiveContainer } from 'recharts';
+import { Tooltip, useBreakpointValue } from '@chakra-ui/react';
+import { Avatar } from '@chakra-ui/avatar';
+import { Flex } from '@chakra-ui/layout';
+import { useEffect } from 'react';
 
-import totalPriceCalculator from "@/utils/totalPriceCalculator";
-import CustomLabel from "./CustomLabel";
+import totalPriceCalculator from '@/utils/totalPriceCalculator';
+import CustomLabel from './CustomLabel';
 
-const AnalyticClientMostGains = ({clients, invoices, callback}) => {
-  let formatedClients = clients.map(client => {
+const AnalyticClientMostGains = ({ clients, invoices, callback }) => {
+  let formatedClients = clients.map((client) => {
     const clientInvoices = invoices.filter(
-      invoice => invoice.clientObj.id === client.id
+      (invoice) => invoice.clientObj.id === client.id
     );
 
-    const clientTotalOutcome = clientInvoices.map(invoice =>
+    const clientTotalOutcome = clientInvoices.map((invoice) =>
       totalPriceCalculator(invoice.items)
     );
 
@@ -23,17 +23,17 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
       amount:
         clientTotalOutcome && clientTotalOutcome.length > 0
           ? clientTotalOutcome.reduce((acc, currVal) => acc + currVal)
-          : 0,
+          : 0
     };
   });
 
   useEffect(() => {
-    formatedClients = clients.map(client => {
+    formatedClients = clients.map((client) => {
       const clientInvoices = invoices.filter(
-        invoice => invoice.clientObj.id === client.id
+        (invoice) => invoice.clientObj.id === client.id
       );
 
-      const clientTotalOutcome = clientInvoices.map(invoice =>
+      const clientTotalOutcome = clientInvoices.map((invoice) =>
         totalPriceCalculator(invoice.items)
       );
 
@@ -43,19 +43,19 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
         amount:
           clientTotalOutcome && clientTotalOutcome.length > 0
             ? clientTotalOutcome.reduce((acc, currVal) => acc + currVal)
-            : 0,
+            : 0
       };
     });
   }, [clients, invoices]);
 
-  const avatarSize = useBreakpointValue({base: "sm", sm: "lg"});
+  const avatarSize = useBreakpointValue({ base: 'sm', sm: 'lg' });
 
   return (
     <Flex
       bg="brand.200"
       alignItems="center"
       justifyContent="center"
-      minW={["90vw", "100%"]}
+      minW={['90vw', '100%']}
       maxW="100vw"
       minH="100%"
       rounded={16}
@@ -80,7 +80,11 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
                 <stop offset="95%" stopColor="#fff" stopOpacity={0.2} />
               </linearGradient>
             </defs>
-            <Bar dataKey="amount" fill="url(#colorUv)">
+            <Bar
+              isAnimationActive={false}
+              dataKey="amount"
+              fill="url(#colorUv)"
+            >
               <LabelList
                 dataKey="amount"
                 position="insideTop"
@@ -96,7 +100,7 @@ const AnalyticClientMostGains = ({clients, invoices, callback}) => {
           pb={4}
           minW="100%"
         >
-          {formatedClients.map(client => (
+          {formatedClients.map((client) => (
             <Tooltip
               key={client.name}
               label={client.name}

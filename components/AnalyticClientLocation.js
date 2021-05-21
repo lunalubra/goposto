@@ -64,6 +64,7 @@ export default function AnalyticClientLocation({ clientData: { clients } }) {
           <PieChart>
             <Pie
               data={arrayOfCountries}
+              isAnimationActive={false}
               innerRadius={60}
               outerRadius={80}
               paddingAngle={5}

@@ -1,6 +1,6 @@
 import totalPriceCalculator from '@/utils/totalPriceCalculator';
 import { Flex, Text } from '@chakra-ui/layout';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   AreaChart,
   Area,
@@ -62,8 +62,6 @@ export default function AnalyticInvoiceGains({ invoiceData: { invoices } }) {
       return { createdAtFormated, totalAmount };
     })
     .reverse();
-
-  useEffect(() => {}, [invoiceGainsData]);
 
   return (
     <Flex
@@ -138,6 +136,7 @@ export default function AnalyticInvoiceGains({ invoiceData: { invoices } }) {
                 />
                 <Area
                   type="monotone"
+                  isAnimationActive={false}
                   dataKey="totalAmount"
                   stroke="url(#strokeGradient)"
                   strokeWidth={5}
