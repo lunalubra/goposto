@@ -1,5 +1,6 @@
 import totalPriceCalculator from '@/utils/totalPriceCalculator';
 import { Flex, Text } from '@chakra-ui/layout';
+import { useCallback, useEffect, useState } from 'react';
 import {
   AreaChart,
   Area,
@@ -13,6 +14,10 @@ import AnalyticTotalGains from './AnalyticTotalGains';
 const CustomLabel = ({ x, y, value, index, arrayLength }) => {
   const width = 40,
     height = width / 2;
+
+  useEffect(() => {
+    console.log(arrayLength);
+  }, [arrayLength]);
 
   if (index === 0 || index === arrayLength - 1) {
     return <div></div>;
@@ -61,6 +66,8 @@ export default function AnalyticInvoiceGains({ invoiceData: { invoices } }) {
       return { createdAtFormated, totalAmount };
     })
     .reverse();
+
+  useEffect(() => {}, [invoiceGainsData]);
 
   return (
     <Flex
