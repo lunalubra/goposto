@@ -15,10 +15,6 @@ const CustomLabel = ({ x, y, value, index, arrayLength }) => {
   const width = 40,
     height = width / 2;
 
-  useEffect(() => {
-    console.log(arrayLength);
-  }, [arrayLength]);
-
   if (index === 0 || index === arrayLength - 1) {
     return <div></div>;
   }
